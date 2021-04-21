@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <script type="text/javascript">
+    var tabs;
+    function change_tbl(val) {
+        if (val == '') {
+            $('#2s,#2d,#3d').hide();
+        }
+
+        else if (tabs == 'Double') {
+            if(val== '2') {
+                $('#2d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '3') {
+                $('#3d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#2d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '4') {
+                $('#4d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#2d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '5') {
+                $('#5d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#2d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '6') {
+                $('#6d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#2d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '7') {
+                $('#7d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#2d,#8d,#9d,#10d').hide();
+            }
+            if(val== '8') {
+                $('#8d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#2d,#9d,#10d').hide();
+            }
+            if(val== '9') {
+                $('#9d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#2d,#10d').hide();
+            }  
+            if(val== '10') {
+                $('#10d').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#2d').hide();
+            } 
+        }
+        else {
+            if(val== '2') {
+                $('#2s').show();
+                $('#2d,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '3') {
+                $('#3s').show();
+                $('#2s,#3d,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#2d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '4') {
+                $('#4s').show();
+                $('#2s,#3s,#4d,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#2d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '5') {
+                $('#5s').show();
+                $('#2s,#3s,#4s,#5d,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#2d,#6d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '6') {
+                $('#6s').show();
+                $('#2s,#3s,#4s,#5s,#6d,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#2d,#7d,#8d,#9d,#10d').hide();
+            }
+            if(val== '7') {
+                $('#7s').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7d,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#2d,#8d,#9d,#10d').hide();
+            }
+            if(val== '8') {
+                $('#8s').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8d,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#2d,#9d,#10d').hide();
+            }
+            if(val== '9') {
+                $('#9s').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9d,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#2d,#10d').hide();
+            }  
+            if(val== '10') {
+                $('#10s').show();
+                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10d,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#2d').hide();
+            } 
+        }
+        }
+
+        function mattabs(val) {
+        if (val == '') {
+            tabs = '';
+        }
+        else if(val== 'Add' || val== 'Sub' || val== 'Mult' || val== 'Div'){
+            tabs = 'Double';
+        }
+        else{
+            tabs = 'Single';
+        }
+        }
+
+    function calculate() {
+        var number1 = $('#n1').val();
+        var number2 = $('#n2').val();
+        $.ajax({
+        method: "POST",
+        url: "computations.py/add",
+        data: {x: n1,y: n2},
+        success: function (data) {},
+        error: function (data) {}
+        });
+    }
+
+    </script>
+    <select onchange="mattabs(this.value)">
+        <option value="">Select</option>
+        <option value="Add">Addition</option>
+        <option value="Sub">Subtraction</option>
+        <option value="Mult">Multiplication</option>
+        <option value="Div">Division</option>
+        <option value="Norm">Normalization</option>
+        <option value="Trans">Transpose</option>
+        <option value="Inv">Inverse</option>
+        <option value="Col">Column space</option>
+        <option value="Row">Row space</option>
+        <option value="Orthogor">Orthogonalization (Gram Schmidt)</option>
+        <option value="Orthonor">Orthonormalization (Gram Schmidt)</option>
+    </select>
+    <select onchange="change_tbl(this.value)">
+        <option value="">Select</option>
+        <option value="2">2 x 2</option>
+        <option value="3">3 x 3</option>
+        <option value="4">4 x 4</option>
+        <option value="5">5 x 5</option>
+        <option value="6">6 x 6</option>
+        <option value="7">7 x 7</option>
+        <option value="8">8 x 8</option>
+        <option value="9">9 x 9</option>
+        <option value="10">10 x 10</option>
+    </select>
+    <br><br>
+    <div id="2d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+            </tr>
+        </table>
+        <br>
+        <table style="border:1px solid red;">
+            <tr>
+                <td><input type="number" id='2a1'></td>
+                <td><input type="number" id='2a2'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='2b1'></td>
+                <td><input type="number" id='2b2'></td>
+            </tr>
+        </table>
+    </div>
+    <div id="3d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+            </tr>
+        </table>
+        <br>
+        <table style="border:1px solid red;">
+            <tr>
+                <td><input type="number" id='2a1'></td>
+                <td><input type="number" id='2a2'></td>
+                <td><input type="number" id='2a3'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='2b1'></td>
+                <td><input type="number" id='2b2'></td>
+                <td><input type="number" id='2b3'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='2c1'></td>
+                <td><input type="number" id='2c2'></td>
+                <td><input type="number" id='2c3'></td>
+            </tr>
+        </table>
+    </div>
+    <div id="4d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                </tr>
+        </table>
+    </div>
+    <div id="5d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+                <td><input type="number" id='1a5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+                <td><input type="number" id='1b5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+                <td><input type="number" id='1c5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+                <td><input type="number" id='1d5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1e1'></td>
+                <td><input type="number" id='1e2'></td>
+                <td><input type="number" id='1e3'></td>
+                <td><input type="number" id='1e4'></td>
+                <td><input type="number" id='1e5'></td>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                    <td><input type="number" id='2a5'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                    <td><input type="number" id='2b5'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                    <td><input type="number" id='2c5'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                    <td><input type="number" id='2d5'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2e1'></td>
+                    <td><input type="number" id='2e2'></td>
+                    <td><input type="number" id='2e3'></td>
+                    <td><input type="number" id='2e4'></td>
+                    <td><input type="number" id='2e5'></td>
+                </tr>
+        </table>
+    </div>
+    <div id="6d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+                <td><input type="number" id='1a5'></td>
+                <td><input type="number" id='1a6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+                <td><input type="number" id='1b5'></td>
+                <td><input type="number" id='1b6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+                <td><input type="number" id='1c5'></td>
+                <td><input type="number" id='1c6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+                <td><input type="number" id='1d5'></td>
+                <td><input type="number" id='1d6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1e1'></td>
+                <td><input type="number" id='1e2'></td>
+                <td><input type="number" id='1e3'></td>
+                <td><input type="number" id='1e4'></td>
+                <td><input type="number" id='1e5'></td>
+                <td><input type="number" id='1e6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1f1'></td>
+                <td><input type="number" id='1f2'></td>
+                <td><input type="number" id='1f3'></td>
+                <td><input type="number" id='1f4'></td>
+                <td><input type="number" id='1f5'></td>
+                <td><input type="number" id='1f6'></td>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                    <td><input type="number" id='2a5'></td>
+                    <td><input type="number" id='2a6'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                    <td><input type="number" id='2b5'></td>
+                    <td><input type="number" id='2b6'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                    <td><input type="number" id='2c5'></td>
+                    <td><input type="number" id='2c6'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                    <td><input type="number" id='2d5'></td>
+                    <td><input type="number" id='2d6'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2e1'></td>
+                    <td><input type="number" id='2e2'></td>
+                    <td><input type="number" id='2e3'></td>
+                    <td><input type="number" id='2e4'></td>
+                    <td><input type="number" id='2e5'></td>
+                    <td><input type="number" id='2e6'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2f1'></td>
+                    <td><input type="number" id='2f2'></td>
+                    <td><input type="number" id='2f3'></td>
+                    <td><input type="number" id='2f4'></td>
+                    <td><input type="number" id='2f5'></td>
+                    <td><input type="number" id='2f6'></td>
+                </tr>
+        </table>
+    </div>
+    <div id="7d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+                <td><input type="number" id='1a5'></td>
+                <td><input type="number" id='1a6'></td>
+                <td><input type="number" id='1a7'></td>
+
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+                <td><input type="number" id='1b5'></td>
+                <td><input type="number" id='1b6'></td>
+                <td><input type="number" id='1b7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+                <td><input type="number" id='1c5'></td>
+                <td><input type="number" id='1c6'></td>
+                <td><input type="number" id='1c7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+                <td><input type="number" id='1d5'></td>
+                <td><input type="number" id='1d6'></td>
+                <td><input type="number" id='1d7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1e1'></td>
+                <td><input type="number" id='1e2'></td>
+                <td><input type="number" id='1e3'></td>
+                <td><input type="number" id='1e4'></td>
+                <td><input type="number" id='1e5'></td>
+                <td><input type="number" id='1e6'></td>
+                <td><input type="number" id='1e7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1f1'></td>
+                <td><input type="number" id='1f2'></td>
+                <td><input type="number" id='1f3'></td>
+                <td><input type="number" id='1f4'></td>
+                <td><input type="number" id='1f5'></td>
+                <td><input type="number" id='1f6'></td>
+                <td><input type="number" id='1f7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1g1'></td>
+                <td><input type="number" id='1g2'></td>
+                <td><input type="number" id='1g3'></td>
+                <td><input type="number" id='1g4'></td>
+                <td><input type="number" id='1g5'></td>
+                <td><input type="number" id='1g6'></td>
+                <td><input type="number" id='1g7'></td>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                    <td><input type="number" id='2a5'></td>
+                    <td><input type="number" id='2a6'></td>
+                    <td><input type="number" id='2a7'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                    <td><input type="number" id='2b5'></td>
+                    <td><input type="number" id='2b6'></td>
+                    <td><input type="number" id='2b7'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                    <td><input type="number" id='2c5'></td>
+                    <td><input type="number" id='2c6'></td>
+                    <td><input type="number" id='2c7'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                    <td><input type="number" id='2d5'></td>
+                    <td><input type="number" id='2d6'></td>
+                    <td><input type="number" id='2d7'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2e1'></td>
+                    <td><input type="number" id='2e2'></td>
+                    <td><input type="number" id='2e3'></td>
+                    <td><input type="number" id='2e4'></td>
+                    <td><input type="number" id='2e5'></td>
+                    <td><input type="number" id='2e6'></td>
+                    <td><input type="number" id='2e7'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2f1'></td>
+                    <td><input type="number" id='2f2'></td>
+                    <td><input type="number" id='2f3'></td>
+                    <td><input type="number" id='2f4'></td>
+                    <td><input type="number" id='2f5'></td>
+                    <td><input type="number" id='2f6'></td>
+                    <td><input type="number" id='2f7'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2g1'></td>
+                    <td><input type="number" id='2g2'></td>
+                    <td><input type="number" id='2g3'></td>
+                    <td><input type="number" id='2g4'></td>
+                    <td><input type="number" id='2g5'></td>
+                    <td><input type="number" id='2g6'></td>
+                    <td><input type="number" id='2g7'></td>
+                </tr>
+        </table>
+    </div>
+    <div id="8d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+                <td><input type="number" id='1a5'></td>
+                <td><input type="number" id='1a6'></td>
+                <td><input type="number" id='1a7'></td>
+                <td><input type="number" id='1a8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+                <td><input type="number" id='1b5'></td>
+                <td><input type="number" id='1b6'></td>
+                <td><input type="number" id='1b7'></td>
+                <td><input type="number" id='1b8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+                <td><input type="number" id='1c5'></td>
+                <td><input type="number" id='1c6'></td>
+                <td><input type="number" id='1c7'></td>
+                <td><input type="number" id='1c8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+                <td><input type="number" id='1d5'></td>
+                <td><input type="number" id='1d6'></td>
+                <td><input type="number" id='1d7'></td>
+                <td><input type="number" id='1d8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1e1'></td>
+                <td><input type="number" id='1e2'></td>
+                <td><input type="number" id='1e3'></td>
+                <td><input type="number" id='1e4'></td>
+                <td><input type="number" id='1e5'></td>
+                <td><input type="number" id='1e6'></td>
+                <td><input type="number" id='1e7'></td>
+                <td><input type="number" id='1e8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1f1'></td>
+                <td><input type="number" id='1f2'></td>
+                <td><input type="number" id='1f3'></td>
+                <td><input type="number" id='1f4'></td>
+                <td><input type="number" id='1f5'></td>
+                <td><input type="number" id='1f6'></td>
+                <td><input type="number" id='1f7'></td>
+                <td><input type="number" id='1f8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1g1'></td>
+                <td><input type="number" id='1g2'></td>
+                <td><input type="number" id='1g3'></td>
+                <td><input type="number" id='1g4'></td>
+                <td><input type="number" id='1g5'></td>
+                <td><input type="number" id='1g6'></td>
+                <td><input type="number" id='1g7'></td>
+                <td><input type="number" id='1g8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1h1'></td>
+                <td><input type="number" id='1h2'></td>
+                <td><input type="number" id='1h3'></td>
+                <td><input type="number" id='1h4'></td>
+                <td><input type="number" id='1h5'></td>
+                <td><input type="number" id='1h6'></td>
+                <td><input type="number" id='1h7'></td>
+                <td><input type="number" id='1h8'></td>
+            </tr>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                    <td><input type="number" id='2a5'></td>
+                    <td><input type="number" id='2a6'></td>
+                    <td><input type="number" id='2a7'></td>
+                    <td><input type="number" id='2a8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                    <td><input type="number" id='2b5'></td>
+                    <td><input type="number" id='2b6'></td>
+                    <td><input type="number" id='2b7'></td>
+                    <td><input type="number" id='2b8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                    <td><input type="number" id='2c5'></td>
+                    <td><input type="number" id='2c6'></td>
+                    <td><input type="number" id='2c7'></td>
+                    <td><input type="number" id='2c8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                    <td><input type="number" id='2d5'></td>
+                    <td><input type="number" id='2d6'></td>
+                    <td><input type="number" id='2d7'></td>
+                    <td><input type="number" id='2d8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2e1'></td>
+                    <td><input type="number" id='2e2'></td>
+                    <td><input type="number" id='2e3'></td>
+                    <td><input type="number" id='2e4'></td>
+                    <td><input type="number" id='2e5'></td>
+                    <td><input type="number" id='2e6'></td>
+                    <td><input type="number" id='2e7'></td>
+                    <td><input type="number" id='2e8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2f1'></td>
+                    <td><input type="number" id='2f2'></td>
+                    <td><input type="number" id='2f3'></td>
+                    <td><input type="number" id='2f4'></td>
+                    <td><input type="number" id='2f5'></td>
+                    <td><input type="number" id='2f6'></td>
+                    <td><input type="number" id='2f7'></td>
+                    <td><input type="number" id='2f8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2g1'></td>
+                    <td><input type="number" id='2g2'></td>
+                    <td><input type="number" id='2g3'></td>
+                    <td><input type="number" id='2g4'></td>
+                    <td><input type="number" id='2g5'></td>
+                    <td><input type="number" id='2g6'></td>
+                    <td><input type="number" id='2g7'></td>
+                    <td><input type="number" id='2g8'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2h1'></td>
+                    <td><input type="number" id='2h2'></td>
+                    <td><input type="number" id='2h3'></td>
+                    <td><input type="number" id='2h4'></td>
+                    <td><input type="number" id='2h5'></td>
+                    <td><input type="number" id='2h6'></td>
+                    <td><input type="number" id='2h7'></td>
+                    <td><input type="number" id='2h8'></td>
+                </tr>
+        </table>
+    </div>
+    <div id="9d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+                <td><input type="number" id='1a5'></td>
+                <td><input type="number" id='1a6'></td>
+                <td><input type="number" id='1a7'></td>
+                <td><input type="number" id='1a8'></td>
+                <td><input type="number" id='1a9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+                <td><input type="number" id='1b5'></td>
+                <td><input type="number" id='1b6'></td>
+                <td><input type="number" id='1b7'></td>
+                <td><input type="number" id='1b8'></td>
+                <td><input type="number" id='1b9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+                <td><input type="number" id='1c5'></td>
+                <td><input type="number" id='1c6'></td>
+                <td><input type="number" id='1c7'></td>
+                <td><input type="number" id='1c8'></td>
+                <td><input type="number" id='1c9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+                <td><input type="number" id='1d5'></td>
+                <td><input type="number" id='1d6'></td>
+                <td><input type="number" id='1d7'></td>
+                <td><input type="number" id='1d8'></td>
+                <td><input type="number" id='1d9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1e1'></td>
+                <td><input type="number" id='1e2'></td>
+                <td><input type="number" id='1e3'></td>
+                <td><input type="number" id='1e4'></td>
+                <td><input type="number" id='1e5'></td>
+                <td><input type="number" id='1e6'></td>
+                <td><input type="number" id='1e7'></td>
+                <td><input type="number" id='1e8'></td>
+                <td><input type="number" id='1e9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1f1'></td>
+                <td><input type="number" id='1f2'></td>
+                <td><input type="number" id='1f3'></td>
+                <td><input type="number" id='1f4'></td>
+                <td><input type="number" id='1f5'></td>
+                <td><input type="number" id='1f6'></td>
+                <td><input type="number" id='1f7'></td>
+                <td><input type="number" id='1f8'></td>
+                <td><input type="number" id='1f9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1g1'></td>
+                <td><input type="number" id='1g2'></td>
+                <td><input type="number" id='1g3'></td>
+                <td><input type="number" id='1g4'></td>
+                <td><input type="number" id='1g5'></td>
+                <td><input type="number" id='1g6'></td>
+                <td><input type="number" id='1g7'></td>
+                <td><input type="number" id='1g8'></td>
+                <td><input type="number" id='1g9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1h1'></td>
+                <td><input type="number" id='1h2'></td>
+                <td><input type="number" id='1h3'></td>
+                <td><input type="number" id='1h4'></td>
+                <td><input type="number" id='1h5'></td>
+                <td><input type="number" id='1h6'></td>
+                <td><input type="number" id='1h7'></td>
+                <td><input type="number" id='1h8'></td>
+                <td><input type="number" id='1h9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1i1'></td>
+                <td><input type="number" id='1i2'></td>
+                <td><input type="number" id='1i3'></td>
+                <td><input type="number" id='1i4'></td>
+                <td><input type="number" id='1i5'></td>
+                <td><input type="number" id='1i6'></td>
+                <td><input type="number" id='1i7'></td>
+                <td><input type="number" id='1i8'></td>
+                <td><input type="number" id='1i9'></td>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                    <td><input type="number" id='2a5'></td>
+                    <td><input type="number" id='2a6'></td>
+                    <td><input type="number" id='2a7'></td>
+                    <td><input type="number" id='2a8'></td>
+                    <td><input type="number" id='2a9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                    <td><input type="number" id='2b5'></td>
+                    <td><input type="number" id='2b6'></td>
+                    <td><input type="number" id='2b7'></td>
+                    <td><input type="number" id='2b8'></td>
+                    <td><input type="number" id='2b9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                    <td><input type="number" id='2c5'></td>
+                    <td><input type="number" id='2c6'></td>
+                    <td><input type="number" id='2c7'></td>
+                    <td><input type="number" id='2c8'></td>
+                    <td><input type="number" id='2c9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                    <td><input type="number" id='2d5'></td>
+                    <td><input type="number" id='2d6'></td>
+                    <td><input type="number" id='2d7'></td>
+                    <td><input type="number" id='2d8'></td>
+                    <td><input type="number" id='2d9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2e1'></td>
+                    <td><input type="number" id='2e2'></td>
+                    <td><input type="number" id='2e3'></td>
+                    <td><input type="number" id='2e4'></td>
+                    <td><input type="number" id='2e5'></td>
+                    <td><input type="number" id='2e6'></td>
+                    <td><input type="number" id='2e7'></td>
+                    <td><input type="number" id='2e8'></td>
+                    <td><input type="number" id='2e9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2f1'></td>
+                    <td><input type="number" id='2f2'></td>
+                    <td><input type="number" id='2f3'></td>
+                    <td><input type="number" id='2f4'></td>
+                    <td><input type="number" id='2f5'></td>
+                    <td><input type="number" id='2f6'></td>
+                    <td><input type="number" id='2f7'></td>
+                    <td><input type="number" id='2f8'></td>
+                    <td><input type="number" id='2f9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2g1'></td>
+                    <td><input type="number" id='2g2'></td>
+                    <td><input type="number" id='2g3'></td>
+                    <td><input type="number" id='2g4'></td>
+                    <td><input type="number" id='2g5'></td>
+                    <td><input type="number" id='2g6'></td>
+                    <td><input type="number" id='2g7'></td>
+                    <td><input type="number" id='2g8'></td>
+                    <td><input type="number" id='2g9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2h1'></td>
+                    <td><input type="number" id='2h2'></td>
+                    <td><input type="number" id='2h3'></td>
+                    <td><input type="number" id='2h4'></td>
+                    <td><input type="number" id='2h5'></td>
+                    <td><input type="number" id='2h6'></td>
+                    <td><input type="number" id='2h7'></td>
+                    <td><input type="number" id='2h8'></td>
+                    <td><input type="number" id='2h9'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2i1'></td>
+                    <td><input type="number" id='2i2'></td>
+                    <td><input type="number" id='2i3'></td>
+                    <td><input type="number" id='2i4'></td>
+                    <td><input type="number" id='2i5'></td>
+                    <td><input type="number" id='2i6'></td>
+                    <td><input type="number" id='2i7'></td>
+                    <td><input type="number" id='2i8'></td>
+                    <td><input type="number" id='2i9'></td>
+                </tr>
+        </table>
+    </div>
+    <div id="10d" style="display: none;">
+        <table style="border:1px solid green;">
+            <tr>
+                <td><input type="number" id='1a1'></td>
+                <td><input type="number" id='1a2'></td>
+                <td><input type="number" id='1a3'></td>
+                <td><input type="number" id='1a4'></td>
+                <td><input type="number" id='1a5'></td>
+                <td><input type="number" id='1a6'></td>
+                <td><input type="number" id='1a7'></td>
+                <td><input type="number" id='1a8'></td>
+                <td><input type="number" id='1a9'></td>
+                <td><input type="number" id='1a10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1b1'></td>
+                <td><input type="number" id='1b2'></td>
+                <td><input type="number" id='1b3'></td>
+                <td><input type="number" id='1b4'></td>
+                <td><input type="number" id='1b5'></td>
+                <td><input type="number" id='1b6'></td>
+                <td><input type="number" id='1b7'></td>
+                <td><input type="number" id='1b8'></td>
+                <td><input type="number" id='1b9'></td>
+                <td><input type="number" id='1b10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1c1'></td>
+                <td><input type="number" id='1c2'></td>
+                <td><input type="number" id='1c3'></td>
+                <td><input type="number" id='1c4'></td>
+                <td><input type="number" id='1c5'></td>
+                <td><input type="number" id='1c6'></td>
+                <td><input type="number" id='1c7'></td>
+                <td><input type="number" id='1c8'></td>
+                <td><input type="number" id='1c9'></td>
+                <td><input type="number" id='1c10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1d1'></td>
+                <td><input type="number" id='1d2'></td>
+                <td><input type="number" id='1d3'></td>
+                <td><input type="number" id='1d4'></td>
+                <td><input type="number" id='1d5'></td>
+                <td><input type="number" id='1d6'></td>
+                <td><input type="number" id='1d7'></td>
+                <td><input type="number" id='1d8'></td>
+                <td><input type="number" id='1d9'></td>
+                <td><input type="number" id='1d10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1e1'></td>
+                <td><input type="number" id='1e2'></td>
+                <td><input type="number" id='1e3'></td>
+                <td><input type="number" id='1e4'></td>
+                <td><input type="number" id='1e5'></td>
+                <td><input type="number" id='1e6'></td>
+                <td><input type="number" id='1e7'></td>
+                <td><input type="number" id='1e8'></td>
+                <td><input type="number" id='1e9'></td>
+                <td><input type="number" id='1e10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1f1'></td>
+                <td><input type="number" id='1f2'></td>
+                <td><input type="number" id='1f3'></td>
+                <td><input type="number" id='1f4'></td>
+                <td><input type="number" id='1f5'></td>
+                <td><input type="number" id='1f6'></td>
+                <td><input type="number" id='1f7'></td>
+                <td><input type="number" id='1f8'></td>
+                <td><input type="number" id='1f9'></td>
+                <td><input type="number" id='1f10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1g1'></td>
+                <td><input type="number" id='1g2'></td>
+                <td><input type="number" id='1g3'></td>
+                <td><input type="number" id='1g4'></td>
+                <td><input type="number" id='1g5'></td>
+                <td><input type="number" id='1g6'></td>
+                <td><input type="number" id='1g7'></td>
+                <td><input type="number" id='1g8'></td>
+                <td><input type="number" id='1g9'></td>
+                <td><input type="number" id='1g10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1h1'></td>
+                <td><input type="number" id='1h2'></td>
+                <td><input type="number" id='1h3'></td>
+                <td><input type="number" id='1h4'></td>
+                <td><input type="number" id='1h5'></td>
+                <td><input type="number" id='1h6'></td>
+                <td><input type="number" id='1h7'></td>
+                <td><input type="number" id='1h8'></td>
+                <td><input type="number" id='1h9'></td>
+                <td><input type="number" id='1h10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1i1'></td>
+                <td><input type="number" id='1i2'></td>
+                <td><input type="number" id='1i3'></td>
+                <td><input type="number" id='1i4'></td>
+                <td><input type="number" id='1i5'></td>
+                <td><input type="number" id='1i6'></td>
+                <td><input type="number" id='1i7'></td>
+                <td><input type="number" id='1i8'></td>
+                <td><input type="number" id='1i9'></td>
+                <td><input type="number" id='1i10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='1j1'></td>
+                <td><input type="number" id='1j2'></td>
+                <td><input type="number" id='1j3'></td>
+                <td><input type="number" id='1j4'></td>
+                <td><input type="number" id='1j5'></td>
+                <td><input type="number" id='1j6'></td>
+                <td><input type="number" id='1j7'></td>
+                <td><input type="number" id='1j8'></td>
+                <td><input type="number" id='1j9'></td>
+                <td><input type="number" id='1j10'></td>
+            </tr>
+            <br>
+            <table style="border:1px solid red;">
+                <tr>
+                    <td><input type="number" id='2a1'></td>
+                    <td><input type="number" id='2a2'></td>
+                    <td><input type="number" id='2a3'></td>
+                    <td><input type="number" id='2a4'></td>
+                    <td><input type="number" id='2a5'></td>
+                    <td><input type="number" id='2a6'></td>
+                    <td><input type="number" id='2a7'></td>
+                    <td><input type="number" id='2a8'></td>
+                    <td><input type="number" id='2a9'></td>
+                    <td><input type="number" id='2a10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2b1'></td>
+                    <td><input type="number" id='2b2'></td>
+                    <td><input type="number" id='2b3'></td>
+                    <td><input type="number" id='2b4'></td>
+                    <td><input type="number" id='2b5'></td>
+                    <td><input type="number" id='2b6'></td>
+                    <td><input type="number" id='2b7'></td>
+                    <td><input type="number" id='2b8'></td>
+                    <td><input type="number" id='2b9'></td>
+                    <td><input type="number" id='2b10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2c1'></td>
+                    <td><input type="number" id='2c2'></td>
+                    <td><input type="number" id='2c3'></td>
+                    <td><input type="number" id='2c4'></td>
+                    <td><input type="number" id='2c5'></td>
+                    <td><input type="number" id='2c6'></td>
+                    <td><input type="number" id='2c7'></td>
+                    <td><input type="number" id='2c8'></td>
+                    <td><input type="number" id='2c9'></td>
+                    <td><input type="number" id='2c10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2d1'></td>
+                    <td><input type="number" id='2d2'></td>
+                    <td><input type="number" id='2d3'></td>
+                    <td><input type="number" id='2d4'></td>
+                    <td><input type="number" id='2d5'></td>
+                    <td><input type="number" id='2d6'></td>
+                    <td><input type="number" id='2d7'></td>
+                    <td><input type="number" id='2d8'></td>
+                    <td><input type="number" id='2d9'></td>
+                    <td><input type="number" id='2d10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2e1'></td>
+                    <td><input type="number" id='2e2'></td>
+                    <td><input type="number" id='2e3'></td>
+                    <td><input type="number" id='2e4'></td>
+                    <td><input type="number" id='2e5'></td>
+                    <td><input type="number" id='2e6'></td>
+                    <td><input type="number" id='2e7'></td>
+                    <td><input type="number" id='2e8'></td>
+                    <td><input type="number" id='2e9'></td>
+                    <td><input type="number" id='2e10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2f1'></td>
+                    <td><input type="number" id='2f2'></td>
+                    <td><input type="number" id='2f3'></td>
+                    <td><input type="number" id='2f4'></td>
+                    <td><input type="number" id='2f5'></td>
+                    <td><input type="number" id='2f6'></td>
+                    <td><input type="number" id='2f7'></td>
+                    <td><input type="number" id='2f8'></td>
+                    <td><input type="number" id='2f9'></td>
+                    <td><input type="number" id='2f10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2g1'></td>
+                    <td><input type="number" id='2g2'></td>
+                    <td><input type="number" id='2g3'></td>
+                    <td><input type="number" id='2g4'></td>
+                    <td><input type="number" id='2g5'></td>
+                    <td><input type="number" id='2g6'></td>
+                    <td><input type="number" id='2g7'></td>
+                    <td><input type="number" id='2g8'></td>
+                    <td><input type="number" id='2g9'></td>
+                    <td><input type="number" id='2g10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2h1'></td>
+                    <td><input type="number" id='2h2'></td>
+                    <td><input type="number" id='2h3'></td>
+                    <td><input type="number" id='2h4'></td>
+                    <td><input type="number" id='2h5'></td>
+                    <td><input type="number" id='2h6'></td>
+                    <td><input type="number" id='2h7'></td>
+                    <td><input type="number" id='2h8'></td>
+                    <td><input type="number" id='2h9'></td>
+                    <td><input type="number" id='2h10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2i1'></td>
+                    <td><input type="number" id='2i2'></td>
+                    <td><input type="number" id='2i3'></td>
+                    <td><input type="number" id='2i4'></td>
+                    <td><input type="number" id='2i5'></td>
+                    <td><input type="number" id='2i6'></td>
+                    <td><input type="number" id='2i7'></td>
+                    <td><input type="number" id='2i8'></td>
+                    <td><input type="number" id='2i9'></td>
+                    <td><input type="number" id='2i10'></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='2j1'></td>
+                    <td><input type="number" id='2j2'></td>
+                    <td><input type="number" id='2j3'></td>
+                    <td><input type="number" id='2j4'></td>
+                    <td><input type="number" id='2j5'></td>
+                    <td><input type="number" id='2j6'></td>
+                    <td><input type="number" id='2j7'></td>
+                    <td><input type="number" id='2j8'></td>
+                    <td><input type="number" id='2j9'></td>
+                    <td><input type="number" id='2j10'></td>
+                </tr>
+        </table>
+    </div>
+
+    <div id="2s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="3s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="4s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="5s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+                <td><input type="number" id='a5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+                <td><input type="number" id='b5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+                <td><input type="number" id='c5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+                <td><input type="number" id='d5'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='e1'></td>
+                <td><input type="number" id='e2'></td>
+                <td><input type="number" id='e3'></td>
+                <td><input type="number" id='e4'></td>
+                <td><input type="number" id='e5'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="6s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+                <td><input type="number" id='a5'></td>
+                <td><input type="number" id='a6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+                <td><input type="number" id='b5'></td>
+                <td><input type="number" id='b6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+                <td><input type="number" id='c5'></td>
+                <td><input type="number" id='c6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+                <td><input type="number" id='d5'></td>
+                <td><input type="number" id='d6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='e1'></td>
+                <td><input type="number" id='e2'></td>
+                <td><input type="number" id='e3'></td>
+                <td><input type="number" id='e4'></td>
+                <td><input type="number" id='e5'></td>
+                <td><input type="number" id='e6'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='f1'></td>
+                <td><input type="number" id='f2'></td>
+                <td><input type="number" id='f3'></td>
+                <td><input type="number" id='f4'></td>
+                <td><input type="number" id='f5'></td>
+                <td><input type="number" id='f6'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="7s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+                <td><input type="number" id='a5'></td>
+                <td><input type="number" id='a6'></td>
+                <td><input type="number" id='a7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+                <td><input type="number" id='b5'></td>
+                <td><input type="number" id='b6'></td>
+                <td><input type="number" id='b7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+                <td><input type="number" id='c5'></td>
+                <td><input type="number" id='c6'></td>
+                <td><input type="number" id='c7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+                <td><input type="number" id='d5'></td>
+                <td><input type="number" id='d6'></td>
+                <td><input type="number" id='d7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='e1'></td>
+                <td><input type="number" id='e2'></td>
+                <td><input type="number" id='e3'></td>
+                <td><input type="number" id='e4'></td>
+                <td><input type="number" id='e5'></td>
+                <td><input type="number" id='e6'></td>
+                <td><input type="number" id='e7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='f1'></td>
+                <td><input type="number" id='f2'></td>
+                <td><input type="number" id='f3'></td>
+                <td><input type="number" id='f4'></td>
+                <td><input type="number" id='f5'></td>
+                <td><input type="number" id='f6'></td>
+                <td><input type="number" id='f7'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='g1'></td>
+                <td><input type="number" id='g2'></td>
+                <td><input type="number" id='g3'></td>
+                <td><input type="number" id='g4'></td>
+                <td><input type="number" id='g5'></td>
+                <td><input type="number" id='g6'></td>
+                <td><input type="number" id='g7'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="8s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+                <td><input type="number" id='a5'></td>
+                <td><input type="number" id='a6'></td>
+                <td><input type="number" id='a7'></td>
+                <td><input type="number" id='a8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+                <td><input type="number" id='b5'></td>
+                <td><input type="number" id='b6'></td>
+                <td><input type="number" id='b7'></td>
+                <td><input type="number" id='b8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+                <td><input type="number" id='c5'></td>
+                <td><input type="number" id='c6'></td>
+                <td><input type="number" id='c7'></td>
+                <td><input type="number" id='c8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+                <td><input type="number" id='d5'></td>
+                <td><input type="number" id='d6'></td>
+                <td><input type="number" id='d7'></td>
+                <td><input type="number" id='d8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='e1'></td>
+                <td><input type="number" id='e2'></td>
+                <td><input type="number" id='e3'></td>
+                <td><input type="number" id='e4'></td>
+                <td><input type="number" id='e5'></td>
+                <td><input type="number" id='e6'></td>
+                <td><input type="number" id='e7'></td>
+                <td><input type="number" id='e8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='f1'></td>
+                <td><input type="number" id='f2'></td>
+                <td><input type="number" id='f3'></td>
+                <td><input type="number" id='f4'></td>
+                <td><input type="number" id='f5'></td>
+                <td><input type="number" id='f6'></td>
+                <td><input type="number" id='f7'></td>
+                <td><input type="number" id='f8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='g1'></td>
+                <td><input type="number" id='g2'></td>
+                <td><input type="number" id='g3'></td>
+                <td><input type="number" id='g4'></td>
+                <td><input type="number" id='g5'></td>
+                <td><input type="number" id='g6'></td>
+                <td><input type="number" id='g7'></td>
+                <td><input type="number" id='g8'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='h1'></td>
+                <td><input type="number" id='h2'></td>
+                <td><input type="number" id='h3'></td>
+                <td><input type="number" id='h4'></td>
+                <td><input type="number" id='h5'></td>
+                <td><input type="number" id='h6'></td>
+                <td><input type="number" id='h7'></td>
+                <td><input type="number" id='h8'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="9s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+                <td><input type="number" id='a5'></td>
+                <td><input type="number" id='a6'></td>
+                <td><input type="number" id='a7'></td>
+                <td><input type="number" id='a8'></td>
+                <td><input type="number" id='a9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+                <td><input type="number" id='b5'></td>
+                <td><input type="number" id='b6'></td>
+                <td><input type="number" id='b7'></td>
+                <td><input type="number" id='b8'></td>
+                <td><input type="number" id='b9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+                <td><input type="number" id='c5'></td>
+                <td><input type="number" id='c6'></td>
+                <td><input type="number" id='c7'></td>
+                <td><input type="number" id='c8'></td>
+                <td><input type="number" id='c9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+                <td><input type="number" id='d5'></td>
+                <td><input type="number" id='d6'></td>
+                <td><input type="number" id='d7'></td>
+                <td><input type="number" id='d8'></td>
+                <td><input type="number" id='d9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='e1'></td>
+                <td><input type="number" id='e2'></td>
+                <td><input type="number" id='e3'></td>
+                <td><input type="number" id='e4'></td>
+                <td><input type="number" id='e5'></td>
+                <td><input type="number" id='e6'></td>
+                <td><input type="number" id='e7'></td>
+                <td><input type="number" id='e8'></td>
+                <td><input type="number" id='e9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='f1'></td>
+                <td><input type="number" id='f2'></td>
+                <td><input type="number" id='f3'></td>
+                <td><input type="number" id='f4'></td>
+                <td><input type="number" id='f5'></td>
+                <td><input type="number" id='f6'></td>
+                <td><input type="number" id='f7'></td>
+                <td><input type="number" id='f8'></td>
+                <td><input type="number" id='f9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='g1'></td>
+                <td><input type="number" id='g2'></td>
+                <td><input type="number" id='g3'></td>
+                <td><input type="number" id='g4'></td>
+                <td><input type="number" id='g5'></td>
+                <td><input type="number" id='g6'></td>
+                <td><input type="number" id='g7'></td>
+                <td><input type="number" id='g8'></td>
+                <td><input type="number" id='g9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='h1'></td>
+                <td><input type="number" id='h2'></td>
+                <td><input type="number" id='h3'></td>
+                <td><input type="number" id='h4'></td>
+                <td><input type="number" id='h5'></td>
+                <td><input type="number" id='h6'></td>
+                <td><input type="number" id='h7'></td>
+                <td><input type="number" id='h8'></td>
+                <td><input type="number" id='h9'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='i1'></td>
+                <td><input type="number" id='i2'></td>
+                <td><input type="number" id='i3'></td>
+                <td><input type="number" id='i4'></td>
+                <td><input type="number" id='i5'></td>
+                <td><input type="number" id='i6'></td>
+                <td><input type="number" id='i7'></td>
+                <td><input type="number" id='i8'></td>
+                <td><input type="number" id='i9'></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="10s" style="display: none;">
+        <table style="width:10%">
+            <tr>
+                <td><input type="number" id='a1'></td>
+                <td><input type="number" id='a2'></td>
+                <td><input type="number" id='a3'></td>
+                <td><input type="number" id='a4'></td>
+                <td><input type="number" id='a5'></td>
+                <td><input type="number" id='a6'></td>
+                <td><input type="number" id='a7'></td>
+                <td><input type="number" id='a8'></td>
+                <td><input type="number" id='a9'></td>
+                <td><input type="number" id='a10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='b1'></td>
+                <td><input type="number" id='b2'></td>
+                <td><input type="number" id='b3'></td>
+                <td><input type="number" id='b4'></td>
+                <td><input type="number" id='b5'></td>
+                <td><input type="number" id='b6'></td>
+                <td><input type="number" id='b7'></td>
+                <td><input type="number" id='b8'></td>
+                <td><input type="number" id='b9'></td>
+                <td><input type="number" id='b10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='c1'></td>
+                <td><input type="number" id='c2'></td>
+                <td><input type="number" id='c3'></td>
+                <td><input type="number" id='c4'></td>
+                <td><input type="number" id='c5'></td>
+                <td><input type="number" id='c6'></td>
+                <td><input type="number" id='c7'></td>
+                <td><input type="number" id='c8'></td>
+                <td><input type="number" id='c9'></td>
+                <td><input type="number" id='c10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='d1'></td>
+                <td><input type="number" id='d2'></td>
+                <td><input type="number" id='d3'></td>
+                <td><input type="number" id='d4'></td>
+                <td><input type="number" id='d5'></td>
+                <td><input type="number" id='d6'></td>
+                <td><input type="number" id='d7'></td>
+                <td><input type="number" id='d8'></td>
+                <td><input type="number" id='d9'></td>
+                <td><input type="number" id='d10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='e1'></td>
+                <td><input type="number" id='e2'></td>
+                <td><input type="number" id='e3'></td>
+                <td><input type="number" id='e4'></td>
+                <td><input type="number" id='e5'></td>
+                <td><input type="number" id='e6'></td>
+                <td><input type="number" id='e7'></td>
+                <td><input type="number" id='e8'></td>
+                <td><input type="number" id='e9'></td>
+                <td><input type="number" id='e10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='f1'></td>
+                <td><input type="number" id='f2'></td>
+                <td><input type="number" id='f3'></td>
+                <td><input type="number" id='f4'></td>
+                <td><input type="number" id='f5'></td>
+                <td><input type="number" id='f6'></td>
+                <td><input type="number" id='f7'></td>
+                <td><input type="number" id='f8'></td>
+                <td><input type="number" id='f9'></td>
+                <td><input type="number" id='f10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='g1'></td>
+                <td><input type="number" id='g2'></td>
+                <td><input type="number" id='g3'></td>
+                <td><input type="number" id='g4'></td>
+                <td><input type="number" id='g5'></td>
+                <td><input type="number" id='g6'></td>
+                <td><input type="number" id='g7'></td>
+                <td><input type="number" id='g8'></td>
+                <td><input type="number" id='g9'></td>
+                <td><input type="number" id='g10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='h1'></td>
+                <td><input type="number" id='h2'></td>
+                <td><input type="number" id='h3'></td>
+                <td><input type="number" id='h4'></td>
+                <td><input type="number" id='h5'></td>
+                <td><input type="number" id='h6'></td>
+                <td><input type="number" id='h7'></td>
+                <td><input type="number" id='h8'></td>
+                <td><input type="number" id='h9'></td>
+                <td><input type="number" id='h10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='i1'></td>
+                <td><input type="number" id='i2'></td>
+                <td><input type="number" id='i3'></td>
+                <td><input type="number" id='i4'></td>
+                <td><input type="number" id='i5'></td>
+                <td><input type="number" id='i6'></td>
+                <td><input type="number" id='i7'></td>
+                <td><input type="number" id='i8'></td>
+                <td><input type="number" id='i9'></td>
+                <td><input type="number" id='i10'></td>
+            </tr>
+            <tr>
+                <td><input type="number" id='j1'></td>
+                <td><input type="number" id='j2'></td>
+                <td><input type="number" id='j3'></td>
+                <td><input type="number" id='j4'></td>
+                <td><input type="number" id='j5'></td>
+                <td><input type="number" id='j6'></td>
+                <td><input type="number" id='j7'></td>
+                <td><input type="number" id='j8'></td>
+                <td><input type="number" id='j9'></td>
+                <td><input type="number" id='j10'></td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <button type="button" onclick="calculate()">Calculate</button>
+
+</html>
