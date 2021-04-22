@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-
+{% extends "basic_base.html" %}
+{% block basic_content %}
     <script src="{{url_for('static', filename='input.js')}}"></script>
-    
     <form method="POST" action="{{ url_for('result') }}">
+        <h4>
+            Select Operation
+        </h4>
+        <br>
         <select name="operation" onchange="mattabs(this.value)">
             <option value="">Select</option>
             <option value="Add">Addition</option>
@@ -21,6 +20,10 @@
             <option value="Orthogor">Orthogonalization (Gram Schmidt)</option>
             <option value="Orthonor">Orthonormalization (Gram Schmidt)</option>
         </select>
+        <br><br>
+        <h4>
+            Select Matrix Size
+        </h4>
         <select name="arr_size" onchange="change_tbl(this.value)">
             <option value="">Select</option>
             <option value="2">2 x 2</option>
@@ -34,6 +37,7 @@
             <option value="10">10 x 10</option>
         </select>
         <br><br>
+
         <div id="2d" style="display: none;">
             <table style="border:1px solid green;">
                 <tr>
@@ -1607,5 +1611,4 @@
         <br>
         <input type = "submit" value = "Submit" />
     </form>
-
-</html>
+{% endblock %}

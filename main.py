@@ -5,8 +5,8 @@ import computations as cp
 app = Flask(__name__)
 
 @app.route('/')
-def main():
-    return render_template("home.html")
+def home():
+    return render_template("index.html")
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
@@ -62,3 +62,15 @@ def result():
         elif(select == 'Orthonor'):
             result=cp.gramschmidt(array1)
     return (str(result))
+
+#@app.route('/home')
+#def home():
+#    return render_template('index.html')    
+
+@app.route('/advanced')
+def advanced():
+    return render_template('advanced.html')
+
+@app.route('/basic')
+def basic():
+    return render_template('basic.html')
