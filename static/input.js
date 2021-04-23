@@ -1,107 +1,32 @@
-var tabs;
-    function change_tbl(val) {
-        if (val == '') {
-            $('#2s,#2d,#3d').hide();
-        }
+function create_input() {
+    var operationName = operations.options[operations.selectedIndex].value;
+    var array_size = arr_size.options[arr_size.selectedIndex].value;
+    document.getElementById('tables').innerHTML = '';
 
-        else if (tabs == 'Double') {
-            if(val== '2') {
-                $('#2d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '3') {
-                $('#3d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#2d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '4') {
-                $('#4d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#2d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '5') {
-                $('#5d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#2d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '6') {
-                $('#6d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#2d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '7') {
-                $('#7d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#2d,#8d,#9d,#10d').hide();
-            }
-            if(val== '8') {
-                $('#8d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#2d,#9d,#10d').hide();
-            }
-            if(val== '9') {
-                $('#9d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#2d,#10d').hide();
-            }  
-            if(val== '10') {
-                $('#10d').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#2d').hide();
-            } 
-        }
-        else {
-            if(val== '2') {
-                $('#2s').show();
-                $('#2d,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '3') {
-                $('#3s').show();
-                $('#2s,#3d,#4s,#5s,#6s,#7s,#8s,#9s,#10s,#2d,#4d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '4') {
-                $('#4s').show();
-                $('#2s,#3s,#4d,#5s,#6s,#7s,#8s,#9s,#10s,#3d,#2d,#5d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '5') {
-                $('#5s').show();
-                $('#2s,#3s,#4s,#5d,#6s,#7s,#8s,#9s,#10s,#3d,#4d,#2d,#6d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '6') {
-                $('#6s').show();
-                $('#2s,#3s,#4s,#5s,#6d,#7s,#8s,#9s,#10s,#3d,#4d,#5d,#2d,#7d,#8d,#9d,#10d').hide();
-            }
-            if(val== '7') {
-                $('#7s').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7d,#8s,#9s,#10s,#3d,#4d,#5d,#6d,#2d,#8d,#9d,#10d').hide();
-            }
-            if(val== '8') {
-                $('#8s').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8d,#9s,#10s,#3d,#4d,#5d,#6d,#7d,#2d,#9d,#10d').hide();
-            }
-            if(val== '9') {
-                $('#9s').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9d,#10s,#3d,#4d,#5d,#6d,#7d,#8d,#2d,#10d').hide();
-            }  
-            if(val== '10') {
-                $('#10s').show();
-                $('#2s,#3s,#4s,#5s,#6s,#7s,#8s,#9s,#10d,#3d,#4d,#5d,#6d,#7d,#8d,#9d,#2d').hide();
-            } 
-        }
-        }
-
-        function mattabs(val) {
-            if (val == '') {
-                tabs = '';
-            }
-            else if(val== 'Add' || val== 'Sub' || val== 'Mult' || val== 'Div'){
-                tabs = 'Double';
-            }
-            else{
-                tabs = 'Single';
-            }
-        }
-
-    function calculate() {
-        var number1 = $('#n1').val();
-        var number2 = $('#n2').val();
-        $.ajax({
-        method: "POST",
-        url: "computations.py/add",
-        data: {x: n1,y: n2},
-        success: function (data) {},
-        error: function (data) {}
-        });
+    if(operationName == "Add" || operationName == "Sub" || operationName == "Mult" || operationName == "MatMult"){
+        var table = create_table(1,array_size);
+        table += create_table(2,array_size);
     }
+    else{
+        var table = create_table(3,array_size);
+    }
+    document.getElementById('tables').innerHTML += table;
+}
+function create_table(option, array_size){
+    if(option==2){
+        var table = '<table style="border:1px solid green;">';
+    }
+    else{
+        var table = '<table style="border:1px solid red;">';
+    }
+
+    for (var r=0; r<parseInt(array_size,10);r++){
+        table +='<tr>';
+        for (var c=0; c<parseInt(array_size,10);c++){
+            table += '<td><input type="number" value="0" name="'+ option.toString() + r.toString() + c.toString() +'"></td>';
+        }
+        table +='</tr>';
+    }
+    table+='</table>'
+    return table;
+}

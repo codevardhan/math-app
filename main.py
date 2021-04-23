@@ -17,17 +17,15 @@ def result():
     if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div'):
         array2=np.zeros((size, size))
 
-        for i in range(1,size+1):
-            for j in range(1,size+1):
-                ind1=chr(i+96)
-                index = "1{}{}".format(ind1,str(j))
+        for i in range(size):
+            for j in range(size):
+                index = "1{}{}".format(str(i),str(j))
                 val = request.form.get(index)
                 array1[i-1][j-1]=int(val)
         
-        for i in range(1,size+1):
-            for j in range(1,size+1):
-                ind1=chr(i+96)
-                index = "2{}{}".format(ind1,str(j))
+        for i in range(size):
+            for j in range(size):
+                index = "2{}{}".format(str(i),str(j))
                 val = request.form.get(index)
                 array2[i-1][j-1]=int(val)
 
@@ -40,10 +38,9 @@ def result():
         elif(select == 'MatMult'):
             result=cp.matmult(array1, array2)
     else:
-        for i in range(1,size+1):
-            for j in range(1,size+1):
-                ind1=chr(i+96)
-                index = "{}{}".format(ind1,str(j))
+        for i in range(size):
+            for j in range(size):
+                index = "3{}{}".format(str(i),str(j))
                 val = request.form.get(index)
                 array1[i-1][j-1]=int(val)
 
