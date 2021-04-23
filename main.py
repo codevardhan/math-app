@@ -10,8 +10,10 @@ def home():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
-    select = request.form.get('operation')
-    size = int(request.form.get('arr_size'))
+    if (request.method=='POST'):
+        select = request.form.get('operations')
+        size = int(request.form.get('arr_size'))
+
     array1=np.zeros((size, size))
 
     if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div'):
@@ -21,13 +23,13 @@ def result():
             for j in range(size):
                 index = "1{}{}".format(str(i),str(j))
                 val = request.form.get(index)
-                array1[i-1][j-1]=int(val)
+                array1[i][j]=int(val)
         
         for i in range(size):
             for j in range(size):
                 index = "2{}{}".format(str(i),str(j))
                 val = request.form.get(index)
-                array2[i-1][j-1]=int(val)
+                array2[i][j]=int(val)
 
         if(select == 'Add'):
             result=cp.addition(array1, array2)
@@ -42,7 +44,7 @@ def result():
             for j in range(size):
                 index = "3{}{}".format(str(i),str(j))
                 val = request.form.get(index)
-                array1[i-1][j-1]=int(val)
+                array1[i][j]=int(val)
 
         if(select == 'Trans'):
             result=cp.transpose(array1)
@@ -58,8 +60,7 @@ def result():
         #    result=cp.matmult(array1)
         elif(select == 'Orthonor'):
             result=cp.gramschmidt(array1)
-    return (str(result))
-
+    return render_template('result.html', result=result)
 #@app.route('/home')
 #def home():
 #    return render_template('index.html')    

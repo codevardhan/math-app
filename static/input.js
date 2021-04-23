@@ -23,7 +23,7 @@ function create_table(option, array_size){
     for (var r=0; r<parseInt(array_size,10);r++){
         table +='<tr>';
         for (var c=0; c<parseInt(array_size,10);c++){
-            table += '<td><input type="number" value="0" name="'+ option.toString() + r.toString() + c.toString() +'"></td>';
+            table += '<td><input type="number" value="0" size ="4" name="'+ option.toString() + r.toString() + c.toString() +'"></td>';
         }
         table +='</tr>';
     }

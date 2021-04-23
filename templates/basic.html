@@ -2,7 +2,7 @@
 {% block basic_content %}
     <script src="{{url_for('static', filename='input.js')}}"></script>
     <form method="POST" action="{{ url_for('result') }}">
-        <select id="operations">
+        <select id="operations" name="operations">
             <option value="">Select Operation</option>
             <option value="Add">Addition</option>
             <option value="Sub">Subtraction</option>
@@ -17,7 +17,7 @@
             <option value="Orthonor">Orthonormalization (Gram Schmidt)</option>
         </select>
         <br>
-        <select id="arr_size">
+        <select id="arr_size" name="arr_size">
             <option value="">Select Matrix Size</option>
             <option value="2">2 x 2</option>
             <option value="3">3 x 3</option>
@@ -30,11 +30,9 @@
             <option value="10">10 x 10</option>
         </select>
         <br>
-        <input type="button" value="Create Input Table" onclick=create_input()></input>
+        <input type="button" value="Create Input Table" onclick=create_input()></input><br><br>
         <div id="tables">
-        
         </div>
-        <br>
         <input type = "submit" value = "Calculate!" />
     </form>
 {% endblock %}
