@@ -67,8 +67,8 @@ def result():
 
 @app.route('/advanced')
 def advanced():
-    return render_template('advanced.html')
+    return render_template('advanced/advanced.html')
 
 @app.route('/basic')
 def basic():
-    return render_template('basic.html')
+    return render_template('basic/basic.html')
