@@ -11,42 +11,47 @@ def home():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
+    result=''
     if (request.method=='POST'):
         select = request.form.get('operations')
         size = int(request.form.get('arr_size'))
-    
     array=np.zeros((size, size))
     no_of_arrays = numArrays(select)
+    arr1 = np.array([[1,2],[2,3]])
+    arr2 = np.array([1,2])
+    try:
+        if (no_of_arrays==2):
+            array2=np.zeros((size, size))
+            array=input_arr(array,1,size)
+            array2=input_arr(array2,2,size)
+            
+            if(select == 'Add'):
+                result=cp.addition(array, array2)
+            elif(select == 'Sub'):
+                result=cp.subtraction(array, array2)
+            elif(select == 'Mult'):
+                result=cp.multiplication(array, array2)
+            elif(select == 'MatMult'):
+                result=cp.matmult(array, array2)
+        else:
+            array=input_arr(array,3,size)
+            if(select == 'Trans'):
+                result=cp.transpose(array)
+            #elif(select == 'Norm'):
+            #   result=cp.matmult(array)
+            elif(select == 'Inv'):
+                result=cp.inverse(array)
+            elif(select == 'Col'):
+                result=cp.ColumnSpace(array)
+            elif(select == 'Row'):
+                result=cp.RowSpace(array)
+            #elif(select == 'Orthogor'):
+            #    result=cp.matmult(array)
+            elif(select == 'Orthonor'):
+                result=cp.gramschmidt(array)
+    except :
+        result=traceback.format_exc().splitlines()[-1]
 
-    if (no_of_arrays==2):
-        array2=np.zeros((size, size))
-        array=input_arr(array,1,size)
-        array2=input_arr(array2,2,size)
-        
-        if(select == 'Add'):
-            result=cp.addition(array, array2)
-        elif(select == 'Sub'):
-            result=cp.subtraction(array, array2)
-        elif(select == 'Mult'):
-            result=cp.multiplication(array, array2)
-        elif(select == 'MatMult'):
-            result=cp.matmult(array, array2)
-    else:
-        array=input_arr(array,3,size)
-        if(select == 'Trans'):
-            result=cp.transpose(array)
-        #elif(select == 'Norm'):
-        #   result=cp.matmult(array)
-        elif(select == 'Inv'):
-            result=cp.inverse(array)
-        elif(select == 'Col'):
-            result=cp.ColumnSpace(array)
-        elif(select == 'Row'):
-            result=cp.RowSpace(array)
-        #elif(select == 'Orthogor'):
-        #    result=cp.matmult(array)
-        elif(select == 'Orthonor'):
-            result=cp.gramschmidt(array)
     if(str(type(result)) == "<class 'str'>"):
         isError=True
     else:
