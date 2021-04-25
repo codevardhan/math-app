@@ -1,10 +1,27 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Advanced Calculations</title>
+		<title>Results</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{url_for('static', filename='assets/css/main.css')}}" />
+		<style type="text/css">     
+			select {
+				width:200px;
+			}
+			table {		
+				table-layout: auto;
+			}
+			input[type=number]{
+				width:100%;
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+			td {
+				margin: 0;
+				padding: 0;}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -19,9 +36,9 @@
 								</header>
 								<br>
 								<div>
-									<h2>Advanced Calculations</h2>
+									<h2>Results</h2>
 									<p>
-										Select suitable option and enter the numbers into the matrix.
+										Results are displayed below.
 									</p>
 								</div>
 							<!-- Section -->

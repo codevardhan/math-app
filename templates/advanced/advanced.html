@@ -4,17 +4,17 @@
     <form method="POST" action="{{ url_for('result') }}">
         <select id="operations" name="operations">
             <option value="">Select Operation</option>
-            <option value="Add">Addition</option>
-            <option value="Sub">Subtraction</option>
-            <option value="Mult">Elementwise Multiplication</option>
-            <option value="MatMult">Matrix Multiplication</option>
-            <option value="Norm">Normalization</option>
-            <option value="Trans">Transpose</option>
-            <option value="Inv">Inverse</option>
-            <option value="Col">Column space</option>
-            <option value="Row">Row space</option>
-            <option value="Orthogor">Orthogonalization (Gram Schmidt)</option>
-            <option value="Orthonor">Orthonormalization (Gram Schmidt)</option>
+            <option value="Add">Fourier matrix and DFT</option>
+            <option value="Sub">Eigenvalues of circulant</option>
+            <option value="Mult">The Kroncker product</option>
+            <option value="MatMult">Toeplitz matrix</option>
+            <option value="Norm">Graph Laplacian Matrix</option>
+            <option value="Trans">SVD</option>
+            <option value="Inv">Spectral Clustering</option>
+            <option value="Col">Clustering by kmeans</option>
+            <option value="Row">Distance Matrix</option>
+            <option value="Orthogor">Sherman Morisson</option>
+            <option value="Orthonor">Kalmann filter</option>
         </select>
         <br>
         <select id="arr_size" name="arr_size">

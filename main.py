@@ -60,10 +60,7 @@ def result():
         #    result=cp.matmult(array1)
         elif(select == 'Orthonor'):
             result=cp.gramschmidt(array1)
-    return render_template('result.html', result=result)
-#@app.route('/home')
-#def home():
-#    return render_template('index.html')    
+    return render_template('result/result.html', result=result)   
 
 @app.route('/advanced')
 def advanced():
@@ -72,3 +69,11 @@ def advanced():
 @app.route('/basic')
 def basic():
     return render_template('basic/basic.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('errors/404.html'), 404
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('errors/500.html'), 500
