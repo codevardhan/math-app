@@ -20,7 +20,7 @@ Basic Operations:
   
 Advanced Operations:
   + Fourier matrix and dft
- +  Eigenvalues of circulant
+  + Eigenvalues of circulant
   + The Kroncker product
   + Toeplitz matrix
   + Graph Laplacian Matrix
@@ -34,3 +34,8 @@ Advanced Operations:
 Optimization Operations: 
   + ADMM
   + Lagrangian and augmented Lagrangian
+
+## Requirements
+- sympy
+- flask
+- numpy
