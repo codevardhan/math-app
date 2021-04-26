@@ -1,37 +1,28 @@
 {% extends "advanced/advanced_base.html" %}
 {% block advanced_content %}
-    <script src="{{url_for('static', filename='input.js')}}"></script>
+    <script src="{{url_for('static', filename='advanced.js')}}"></script>
     <form method="POST" action="{{ url_for('result') }}">
-        <select id="operations" name="operations">
-            <option value="">Select Operation</option>
-            <option value="Add">Fourier matrix and DFT</option>
-            <option value="Sub">Eigenvalues of circulant</option>
-            <option value="Mult">The Kroncker product</option>
-            <option value="Norm">Graph Laplacian Matrix</option>
-            <option value="Trans">SVD</option>
-            <option value="Inv">Spectral Clustering</option>
-            <option value="Col">Clustering by kmeans</option>
-            <option value="Row">Distance Matrix</option>
-            <option value="Orthogor">Sherman Morisson</option>
-            <option value="Orthonor">Kalmann filter</option>
+        <select id="operations" name="operations" onchange="sizeSelect()">
+            <option value="none" selected disabled hidden>Select Operation</option>
+            <option value="DFT">Fourier matrix and DFT</option>
+            <option value="EIG">Eigenvalues of circulant -X</option>
+            <option value="KRO">The Kroncker product</option>
+            <option value="LAPL">Graph Laplacian Matrix</option>
+            <option value="SVD">SVD</option>
+            <option value="SPCL">Spectral Clustering -X</option>
+            <option value="KCL">Clustering by kmeans</option>
+            <option value="DMAT">Distance Matrix</option>
+            <option value="SHER">Sherman Morisson -X</option>
+            <option value="KALM">Kalmann filter -X</option>
         </select>
         <br>
-        <select id="arr_size" name="arr_size">
-            <option value="">Select Matrix Size</option>
-            <option value="2">2 x 2</option>
-            <option value="3">3 x 3</option>
-            <option value="4">4 x 4</option>
-            <option value="5">5 x 5</option>
-            <option value="6">6 x 6</option>
-            <option value="7">7 x 7</option>
-            <option value="8">8 x 8</option>
-            <option value="9">9 x 9</option>
-            <option value="10">10 x 10</option>
-        </select>
+        <div id="arr_size_select">
+            
+        </div>
         <br>
-        <input type="button" value="Create Input Table" onclick=create_input()></input><br><br>
+        <input type="button" value="Create Input Table(s)" onclick=create_input()></input><br><br>
         <div id="tables">
         </div>
-        <input type = "submit" value = "Calculate!" />
+        <input type = "submit" value = "Calculate!" />   
     </form>
 {% endblock %}

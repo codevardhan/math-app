@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import numpy as np
 import computations as cp
+import advanced as ad
 import traceback
 
 app = Flask(__name__)
@@ -14,46 +15,22 @@ def result():
     result = ''
     isError = False
     if (request.method == 'POST'):
-        #print(request.form)
+
         select = request.form.get('operations')
         r1 = int(request.form.get('row1_size'))
         c1 = int(request.form.get('col1_size'))
-
-        array = np.zeros((r1, c1))
         no_of_arrays = num_arrays(select)
 
         try:
             if (no_of_arrays == 2):
                 r2 = int(request.form.get('row2_size'))
                 c2 = int(request.form.get('col2_size'))
-                array2 = np.zeros((r2, c2))
-                array = input_arr(array, 1, r1, c1)
-                array2 = input_arr(array2, 2, r2, c2)
-
-                if(select == 'Add'):
-                    result = cp.addition(array, array2)
-                elif(select == 'Sub'):
-                    result = cp.subtraction(array, array2)
-                elif(select == 'Mult'):
-                    result = cp.multiplication(array, array2)
-                elif(select == 'MatMult'):
-                    result = cp.matmult(array, array2)
+                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+                array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
+                result = select_function(select, array, array2)
             else:
-                array = input_arr(array, 1, r1, c1)
-                if(select == 'Trans'):
-                    result = cp.transpose(array)
-                #elif(select == 'Norm'):
-                #   result = cp.matmult(array)
-                elif(select == 'Inv'):
-                    result = cp.inverse(array)
-                elif(select == 'Col'):
-                    result = cp.column_space(array)
-                elif(select == 'Row'):
-                    result = cp.row_space(array)
-                #elif(select == 'Orthogor'):
-                #    result = cp.matmult(array)
-                elif(select == 'Orthonor'):
-                    result = cp.gramschmidt(array)
+                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+                result = select_function(select, array)
         except:
             result = traceback.format_exc().splitlines()[-1]
             isError=True
@@ -80,7 +57,7 @@ def page_not_found(e):
     return render_template('errors/500.html'), 500
 
 def num_arrays(select):
-    if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div'):
+    if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div' or select=="KRO" or select=="DMAT"):
         return 2
     else:
         return 1
@@ -92,3 +69,50 @@ def input_arr(array, option, r, c):
                 val = request.form.get(index)
                 array[i][j] = int(val)
     return array
+
+def select_function(select, array, array2=[]):
+    if(select == 'Add'):
+        result = cp.addition(array, array2)
+    elif(select == 'Sub'):
+        result = cp.subtraction(array, array2)
+    elif(select == 'Mult'):
+        result = cp.multiplication(array, array2)
+    elif(select == 'MatMult'):
+        result = cp.matmult(array, array2)
+    elif(select == 'Trans'):
+        result = cp.transpose(array)
+    elif(select == 'Inv'):
+        result = cp.inverse(array)
+    elif(select == 'Col'):
+        result = cp.column_space(array)
+    elif(select == 'Row'):
+        result = cp.row_space(array)
+    elif(select == 'Orthonor'):
+        result = cp.gramschmidt(array)
+    #elif(select == 'Orthogor'):
+    #    result = cp.matmult(array)
+    #elif(select == 'Norm'):
+    #   result = cp.matmult(array)
+    #-----------------------------------------------------#
+    elif(select == 'DFT'):
+        result = ad.DFT(array)
+    #elif(select == 'EIG'):
+        #result = ad.transpose(array)
+    elif(select == 'KRO'):
+        result = ad.Kroneckerproduct(array, array2)
+    elif(select == 'LAPL'):
+        result = ad.Graph_Lap(array)
+    elif(select == 'SVD'):
+        result = ad.svd_values(array)
+    #elif(select == 'SPCL'):
+        #result = ad.gramschmidt(array)
+    elif(select == 'KCL'):
+        result = ad.clus_kmean(array)
+    elif(select == 'DMAT'):
+        result = ad.dist_mat(array, array2)
+    #elif(select == 'SHER'):
+        #result = ad.row_space(array)
+    #elif(select == 'KALM'):
+        #result = ad.gramschmidt(array)
+    return result
+    

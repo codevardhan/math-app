@@ -19,20 +19,27 @@ def Kroneckerproduct(a, b):
     result = np.kron(a, b)
     return result
 
+# Function to find the graph laplacian of a matrix
+
 
 def Graph_Lap(num):
     G = np.arange(num) * np.arange(num)[:, np.newaxis]
     return csgraph.laplacian(G, normed=False)
 
+# Function to do singular value decomposition
+
 
 def svd_values(arr):
     return svdvals(arr)
+
+# Find distance matrix between two arrays
 
 
 def dist_mat(arr, arrx):
     return distance_matrix(arr, arrx)
 
+# Find Kmeans cluster of two arrays
 
-def Clus_Kmean(arr, n):
+def clus_kmean(arr, n):
     kmeans = KMeans(n_clusters=n, random_state=0).fit(X)
     return kmeans.cluster_centers_
