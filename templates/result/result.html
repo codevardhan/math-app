@@ -1,20 +1,17 @@
-{% extends "result/result_base.html" %}
-{% block basic_content %}
+{% extends "result/result_base.html" %} {% block basic_content %}
 <script src="{{url_for('static', filename='input.js')}}"></script>
-    <div id="tables">
-        <table style="border:1px solid green;">
-            {% if isError %}
-                <p>{{ result }}</p>
-            {% else %}
-                {% for i in result %}
-                <tr>
-                {% for j in i  %}
-                    <th> {{ j }} </th>
-                {% endfor %}
-                </tr>
-                {% endfor %}
-            {% endif %}
-            </table>
-    </div>
-    <input type = "button" value = "Go Back" onclick="history.back()"/>
+<div id="tables">
+  <table style="border: 1px solid green">
+    {% if isError %}
+    <p>{{ result }}</p>
+    {% else %} {% for i in result %}
+    <tr>
+      {% for j in i %}
+      <th>{{ j }}</th>
+      {% endfor %}
+    </tr>
+    {% endfor %} {% endif %}
+  </table>
+</div>
+<input type="button" value="Go Back" onclick="history.back()" />
 {% endblock %}

@@ -1,84 +1,90 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Basic Calculations</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{url_for('static', filename='assets/css/main.css')}}" />
-		<style type="text/css">     
-			select {
-				width:200px;
-			}
-			table {		
-				table-layout: auto;
-			}
-			input[type=number]{
-				width:100%;
-				display: block;
-				padding: 0;
-				margin: 0;
-			}
-			td {
-				margin: 0;
-				padding: 0;}
-		</style>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+  <head>
+    <title>Basic Calculations</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='assets/css/main.css')}}"
+    />
+    <style type="text/css">
+      select {
+        width: 200px;
+      }
+      table {
+        table-layout: auto;
+      }
+      input[type="number"] {
+        width: 100%;
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+      td {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="{{ url_for('home') }}" class="logo"
+              ><strong>Matrix</strong> Calculator</a
+            >
+          </header>
+          <br />
+          <div>
+            <h2>Basic Calculations</h2>
+            <p>Select suitable option and enter the numbers into the matrix.</p>
+          </div>
+          <!-- Section -->
+          <div>{% block basic_content %} {% endblock %}</div>
+        </div>
+      </div>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="{{ url_for('home') }}" class="logo"><strong>Matrix</strong> Calculator</a>
-								</header>
-								<br>
-								<div>
-									<h2>Basic Calculations</h2>
-									<p>
-										Select suitable option and enter the numbers into the matrix.
-									</p>
-								</div>
-							<!-- Section -->
-								<div>
-									{% block basic_content %}
-    								{% endblock %}
-								</div>
-						</div>
-					</div>
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <div class="inner">
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Menu</h2>
+            </header>
+            <ul>
+              <li><a href="{{ url_for('home') }}">Homepage</a></li>
+              <li><a href="{{ url_for('basic') }}">Basic Calculations</a></li>
+              <li>
+                <a href="{{ url_for('advanced') }}">Advanced Calculations</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; Untitled. All rights reserved. Demo Images:
+              <a href="https://unsplash.com">Unsplash</a>. Design:
+              <a href="https://html5up.net">HTML5 UP</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner"> 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="{{ url_for('home') }}">Homepage</a></li>
-										<li><a href="{{ url_for('basic') }}">Basic Calculations</a></li>
-										<li><a href="{{ url_for('advanced') }}">Advanced Calculations</a></li>
-									</ul>
-								</nav>
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+  </body>
 </html>

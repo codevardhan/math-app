@@ -1,143 +1,214 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>MATH APP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{url_for('static', filename='assets/css/main.css')}}" />
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+  <head>
+    <title>MATH APP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='assets/css/main.css')}}"
+    />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="{{ url_for('home') }}" class="logo"
+              ><strong>Matrix</strong> Calculator</a
+            >
+          </header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="{{ url_for('home') }}" class="logo"><strong>Matrix</strong> Calculator</a>
-								</header>
+          <!-- Banner -->
+          <section id="banner">
+            <div class="content">
+              <header>
+                <h1>
+                  Math App,<br />
+                  a matrix Calculator
+                </h1>
+                <p>
+                  Two random variables were talking in a bar. They thought they
+                  were being discrete but I heard their chatter continuously.xD
+                </p>
+              </header>
+              <p>Enter brief description</p>
+              <ul class="actions">
+                <li><a href="#content" class="button big">Learn More</a></li>
+              </ul>
+            </div>
+            <span class="image object">
+              <img
+                src="{{url_for('static', filename='images/pic10.jpg')}}"
+                alt=""
+              />
+            </span>
+          </section>
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Math App,<br />
-											a matrix Calculator</h1>
-											<p>Two random variables were talking in a bar. They thought they were being discrete but I heard their chatter continuously.xD</p>
-										</header>
-										<p>Enter brief description</p>
-										<ul class="actions">
-											<li><a href="#content" class="button big">Learn More</a></li>
-										</ul>
-									</div>
-									<span class="image object">
-										<img src="{{url_for('static', filename='images/pic10.jpg')}}" alt="" />
-									</span>
-								</section>
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Calculations you can do here</h2>
+            </header>
+            <div class="features">
+              <article>
+                <span class="icon solid fa-check"></span>
+                <div class="content">
+                  <h3>Basic Operations</h3>
+                  <p>
+                    All basic operations such as Classification, Addition,
+                    Subtraction,Multiplication and Division.Normalization or
+                    finding the transpose, inverse, column space and row space.
+                    In fact you can also do Gram Schmidt Orthogonalization
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span class="icon solid fa-check"></span>
+                <div class="content">
+                  <h3>Sherman Morisson and Kalmann filter</h3>
+                  <p>
+                    <i>Sherman Morisson</i> computes the inverse of the sum of
+                    an invertible matrix 'A' and the outer product,
+                    (uv)'[transpose] of vectors 'u' and 'v'. <br /><br />
+                    <i>Kalmann filter</i>also known as linear quadratic
+                    estimation (LQE), is an algorithm that uses a series of
+                    measurements observed over time, containing statistical
+                    noise and other inaccuracies, and produces estimates of
+                    unknown variables that tend to be more accurate than those
+                    based on a single measurement alone, by estimating a joint
+                    probability distribution over the variables for each
+                    timeframe.
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span class="icon solid fa-check"></span>
+                <div class="content">
+                  <h3>SVD and Spectral Clustering</h3>
+                  <p>
+                    <i>SVD</i> is a factorization of a real or complex matrix
+                    that generalizes the eigendecomposition of a square normal
+                    matrix to any m × n via an extension of the polar
+                    decomposition. <br /><br />
+                    <i>Spectral clustering</i> techniques make use of the
+                    spectrum (eigenvalues) of the similarity matrix of the data
+                    to perform dimensionality reduction before clustering in
+                    fewer dimensions. The similarity matrix is provided as an
+                    input and consists of a quantitative assessment of the
+                    relative similarity of each pair of points in the dataset.
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span class="icon solid fa-check"></span>
+                <div class="content">
+                  <h3>
+                    Optimizations -ADMM and Lagrangian and augmented Lagrangian
+                  </h3>
+                  <p>
+                    <i>ADMM</i> is a method of vector quantization, originally
+                    from signal processing, that aims to partition n
+                    observations into k clusters in which each observation
+                    belongs to the cluster with the nearest mean (cluster
+                    centers or cluster centroid), serving as a prototype of the
+                    cluster. <br /><br />
+                    <i>Augmented Lagrangian methods</i> is an operation on two
+                    matrices of arbitrary size resulting in a block matrix. It
+                    is a generalization of the outer product (which is denoted
+                    by the same symbol) from vectors to matrices, and gives the
+                    matrix of the tensor product with respect to a standard
+                    choice of basis. The Kronecker product is to be
+                    distinguished from the usual matrix multiplication, which is
+                    an entirely different operation.
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span class="icon solid fa-check"></span>
+                <div class="content">
+                  <h3>Clustering by Kmeans and The Kroncker product</h3>
+                  <p>
+                    <i>Clustering by Kmeans</i> is an algorithm that solves
+                    convex optimization problems by breaking them into smaller
+                    pieces, each of which are then easier to handle. It has
+                    recently found wide application in a number of areas. On
+                    this page, we provide a few links to to interesting
+                    applications and implementations of the method, along with a
+                    few primary references. <br /><br />
+                    <i>The Kroncker product</i> are a certain class of
+                    algorithms for solving constrained optimization problems.
+                    They have similarities to penalty methods in that they
+                    replace a constrained optimization problem by a series of
+                    unconstrained problems and add a penalty term to the
+                    objective; the difference is that the augmented Lagrangian
+                    method adds yet another term, designed to mimic a Lagrange
+                    multiplier.
+                  </p>
+                </div>
+              </article>
+              <article>
+                <span class="icon solid fa-check"></span>
+                <div class="content">
+                  <h3>Fourier matrix and dft</h3>
+                  <p>
+                    <i>Fourier matrix</i> is a mathematical transform that
+                    decomposes functions depending on space or time into
+                    functions depending on spatial or temporal frequency, such
+                    as the expression of a musical chord in terms of the volumes
+                    and frequencies of its constituent notes. <br /><br />
+                    <i>Dft</i> converts a finite sequence of equally-spaced
+                    samples of a function into a same-length sequence of
+                    equally-spaced samples of the discrete-time Fourier
+                    transform (DTFT), which is a complex-valued function of
+                    frequency.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
 
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Calculations you can do here </h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon solid fa-check"></span>
-											<div class="content">
-												<h3>Basic Operations</h3>
-												<p>All basic operations such as Classification, Addition, Subtraction,Multiplication and Division.Normalization or finding the transpose, inverse, column space and row space. In fact you can also do Gram Schmidt Orthogonalization
-												</p> 											
-												</div>
-										</article>
-										<article>
-											<span class="icon solid fa-check"></span>
-											<div class="content">
-												<h3>Sherman Morisson and Kalmann filter</h3>
-												<p><i>Sherman Morisson</i> computes the inverse of the sum of an invertible matrix 'A' and the outer product, (uv)'[transpose] of vectors 'u' and 'v'.
-												<br><br>
-												<i>Kalmann filter</i>also known as linear quadratic estimation (LQE), is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables that tend to be more accurate than those based on a single measurement alone, by estimating a joint probability distribution over the variables for each timeframe.
-												</p> 
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-check"></span>
-											<div class="content">
-												<h3>SVD and Spectral Clustering</h3>
-												<p><i>SVD</i> is a factorization of a real or complex matrix that generalizes the eigendecomposition of a square normal matrix to any m × n via an extension of the polar decomposition. 
-												<br><br>
-												<i>Spectral clustering</i> techniques make use of the spectrum (eigenvalues) of the similarity matrix of the data to perform dimensionality reduction before clustering in fewer dimensions. The similarity matrix is provided as an input and consists of a quantitative assessment of the relative similarity of each pair of points in the dataset. 
-												</p> 											
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-check"></span>
-											<div class="content">
-												<h3>Optimizations -ADMM and Lagrangian and augmented Lagrangian</h3>
-												<p>
-													<i>ADMM</i> is a method of vector quantization, originally from signal processing, that aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean (cluster centers or cluster centroid), serving as a prototype of the cluster. 
-													<br><br>
-													<i>Augmented Lagrangian methods</i> is an operation on two matrices of arbitrary size resulting in a block matrix. It is a generalization of the outer product (which is denoted by the same symbol) from vectors to matrices, and gives the matrix of the tensor product with respect to a standard choice of basis. The Kronecker product is to be distinguished from the usual matrix multiplication, which is an entirely different operation. 
-													</p> 											
-												</div>
-										</article>
-										<article>
-											<span class="icon solid fa-check"></span>
-											<div class="content">
-												<h3>Clustering by Kmeans and The Kroncker product</h3>
-												<p>
-													<i>Clustering by Kmeans</i> is an algorithm that solves convex optimization problems by breaking them into smaller pieces, each of which are then easier to handle. It has recently found wide application in a number of areas. On this page, we provide a few links to to interesting applications and implementations of the method, along with a few primary references. 
-													<br><br>
-													<i>The Kroncker product</i> are a certain class of algorithms for solving constrained optimization problems. They have similarities to penalty methods in that they replace a constrained optimization problem by a series of unconstrained problems and add a penalty term to the objective; the difference is that the augmented Lagrangian method adds yet another term, designed to mimic a Lagrange multiplier. 
-													</p> 											
-												</div>
-										</article>
-										<article>
-											<span class="icon solid fa-check"></span>
-											<div class="content">
-												<h3>Fourier matrix and dft</h3>
-												<p>
-													<i>Fourier matrix</i> is a mathematical transform that decomposes functions depending on space or time into functions depending on spatial or temporal frequency, such as the expression of a musical chord in terms of the volumes and frequencies of its constituent notes.
-													<br><br>
-													<i>Dft</i> converts a finite sequence of equally-spaced samples of a function into a same-length sequence of equally-spaced samples of the discrete-time Fourier transform (DTFT), which is a complex-valued function of frequency. 
-													</p> 												
-												</div>
-										</article>
-									</div>
-								</section>
-						</div>
-					</div>
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <div class="inner">
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Menu</h2>
+            </header>
+            <ul>
+              <li><a href="{{ url_for('home') }}">Homepage</a></li>
+              <li><a href="{{ url_for('basic') }}">Basic Calculations</a></li>
+              <li>
+                <a href="{{ url_for('advanced') }}">Advanced Calculations</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; Untitled. All rights reserved. Demo Images:
+              <a href="https://unsplash.com">Unsplash</a>. Design:
+              <a href="https://html5up.net">HTML5 UP</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="{{ url_for('home') }}">Homepage</a></li>
-										<li><a href="{{ url_for('basic') }}">Basic Calculations</a></li>
-										<li><a href="{{ url_for('advanced') }}">Advanced Calculations</a></li>
-									</ul>
-								</nav>
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
-			<script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+  </body>
 </html>
