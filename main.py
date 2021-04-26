@@ -47,9 +47,9 @@ def result():
                 elif(select == 'Inv'):
                     result = cp.inverse(array)
                 elif(select == 'Col'):
-                    result = cp.ColumnSpace(array)
+                    result = cp.column_space(array)
                 elif(select == 'Row'):
-                    result = cp.RowSpace(array)
+                    result = cp.row_space(array)
                 #elif(select == 'Orthogor'):
                 #    result = cp.matmult(array)
                 elif(select == 'Orthonor'):
@@ -66,6 +66,10 @@ def advanced():
 @app.route('/basic')
 def basic():
     return render_template('basic/basic.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

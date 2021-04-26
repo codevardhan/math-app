@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MATH APP</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='assets/css/main.css')}}"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+      html {
+        box-sizing: border-box;
+        font-family: Helvetica;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .column {
+        float: left;
+        width: 25%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      @media screen and (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .container::after,
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="{{ url_for('home') }}" class="logo"
+              ><strong>Matrix</strong> Calculator</a
+            >
+          </header>
+
+          <!-- Section -->
+          <section>
+            <h2>Meet the Team</h2>
+            <br />
+
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Adi.jpeg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Aditya Anil</h2>
+                    <p class="title">Front End Developer</p>
+                    <a
+                      href="https://github.com/SkaarFacee"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Anand.jpeg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Anand Balaji</h2>
+                    <p class="title">Web Hosting and Deployment</p>
+                    <a
+                      href="https://github.com/d4rk-kn1gh7"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Anji.jpeg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Anjith Prakash</h2>
+                    <p class="title">Front End Developer</p>
+                    <a
+                      href="https://github.com/Anuttan"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Harsh.jpg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Harshavardhan M</h2>
+                    <p class="title">Back End Developer (Flask)</p>
+                    <a
+                      href="https://github.com/codevardhan"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Nandu.jpeg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Nandakishor</h2>
+                    <p class="title">Back End Developer (Python)</p>
+                    <a
+                      href="https://github.com/n-d-u"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Sanjay.jpg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Sanjay Raju</h2>
+                    <p class="title">Back End Developer (Python)</p>
+                    <a
+                      href="https://github.com/sanjjayrj"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Sasi.jpeg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Sreerag K Vivek</h2>
+                    <p class="title">Back End Developer (Python)</p>
+                    <a
+                      href="https://github.com/sreeragkvivek"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="card">
+                  <img
+                    src="{{url_for('static', filename='images/Vivek.jpeg')}}"
+                    style="width: 100%"
+                  />
+                  <div class="container">
+                    <h2>Vivek Haridas</h2>
+                    <p class="title">Back End Developer (Python)</p>
+                    <a
+                      href="https://github.com/RioT007"
+                      class="fa fa-github"
+                      style="font-size: 24px"
+                    ></a>
+                    <br /><br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <div class="inner">
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Menu</h2>
+            </header>
+            <ul>
+              <li><a href="{{ url_for('home') }}">Homepage</a></li>
+              <li><a href="{{ url_for('basic') }}">Basic Calculations</a></li>
+              <li>
+                <a href="{{ url_for('advanced') }}">Advanced Calculations</a>
+              </li>
+              <li><a href="{{ url_for('about') }}">Meet The Team</a></li>
+            </ul>
+          </nav>
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              This WebApp is developed by S4 Students for their Mathematics for Intelligent Systems - 4 Group Project. 
+              Code available on <a href="https://github.com/codevardhan/math-app">GitHub</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
+  </body>
+</html>
