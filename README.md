@@ -39,3 +39,15 @@ Optimization Operations:
 - sympy
 - flask
 - numpy
+
+## Usage and Local Deployment
+This app requires `docker engine`, `docker-compose` and `git` installed on the local machine to build and run. 
+
+Use the following steps for local deployment: 
+```
+git clone https://github.com/codevardhan/math-app.git
+cd math-app
+docker-compose build
+docker-compose up -d
+```
+Then, visit `http://0.0.0.0:8080/` to see the web app in action!

@@ -116,4 +116,6 @@ def select_function(select, array, array2=[]):
     #elif(select == 'KALM'):
         #result = ad.gramschmidt(array)
     return result
-    
+
+if __name__ == "__main__":
+    app.run(debug = True, host='0.0.0.0', port=8080)
