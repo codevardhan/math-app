@@ -9,8 +9,7 @@ from sklearn.cluster import KMeans
 
 
 def DFT(N):
-    dftmtx = np.fft.fft(np.eye(N))
-    return dftmtx
+    return np.fft.fft(N)
 
 # Function to find the Kronecke product of 2 matrices
 

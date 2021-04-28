@@ -15,7 +15,7 @@ def result():
     result = ''
     isError = False
     if (request.method == 'POST'):
-
+        #print(request.form)
         select = request.form.get('operations')
         r1 = int(request.form.get('row1_size'))
         c1 = int(request.form.get('col1_size'))
@@ -104,6 +104,7 @@ def select_function(select, array, array2=[]):
         result = ad.Graph_Lap(array)
     elif(select == 'SVD'):
         result = ad.svd_values(array)
+        print(result)
     #elif(select == 'SPCL'):
         #result = ad.gramschmidt(array)
     elif(select == 'KCL'):
