@@ -40,7 +40,7 @@ Optimization Operations:
 - flask
 - numpy
 
-##Usage and Local Deployment
+## Usage and Local Deployment
 This app requires `docker engine`, `docker-compose` and `git` installed on the local machine to build and run. 
 
 Use the following steps for local deployment: 
