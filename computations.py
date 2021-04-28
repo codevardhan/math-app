@@ -61,7 +61,7 @@ def inverse(A):  # inputs an np array
 
 def column_space(A):  # takes a 2d np array where columns are vectors
     P, L, U = lu(A)
-    col_sp_A = A[:, get_indices_for_linearly_independent_columns_of_A(U)]
+    col_sp_A = A[:, get_indices(U)]
     return col_sp_A  # returns a 2d np array with column space
 
 # Row Space
@@ -84,7 +84,7 @@ def row_space(A):  # takes an 2d np array
     return arr  # returns a 2d np array
 
 
-def get_indices_for_linearly_independent_columns_of_a(U: np.ndarray) -> list:
+def get_indices(U: np.ndarray) -> list:
     U_copy = U.copy()
     U_copy[abs(U_copy) < 1.e-7] = 0
 
