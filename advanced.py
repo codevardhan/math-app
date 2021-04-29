@@ -31,3 +31,6 @@ def dist_mat(arr, arrx):
 def clus_kmean(arr, n):
     kmeans = KMeans(n_clusters=n, random_state=0).fit(X)
     return kmeans.cluster_centers_
+
+def transpose(arr):
+    return -1
