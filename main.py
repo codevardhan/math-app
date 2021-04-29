@@ -70,52 +70,32 @@ def input_arr(array, option, r, c):
                 array[i][j] = int(val)
     return array
 
+maps = {
+    'Add' : cp.addition,
+    'Sub' : cp.subtraction,
+    'Mult' : cp.multiplication,
+    'MatMult' : cp.matmult,
+    'Trans' : cp.transpose,
+    'Inv' : cp.inverse,
+    'Col' : cp.column_space,
+    'Row' : cp.row_space,
+    'Orthonor' : cp.gramschmidt,
+    'Orthogor' : cp.matmult,
+    'Norm' : cp.matmult,
+    'DFT' : ad.dft,
+    'EIG' : ad.transpose,
+    'KRO' : ad.Kroneckerproduct,
+    'LAPL' : ad.Graph_Lap,
+    'SVD' : ad.svd_values,
+    'SPCL' : ad.gramschmidt,
+    'KCL' : ad.clus_kmean,
+    'DMAT' : ad.dist_mat,
+    'SHER' : ad.row_space,
+    'KALM' : ad.gramschmidt
+}
+
 def select_function(select, array, array2=[]):
-    if(select == 'Add'):
-        result = cp.addition(array, array2)
-    elif(select == 'Sub'):
-        result = cp.subtraction(array, array2)
-    elif(select == 'Mult'):
-        result = cp.multiplication(array, array2)
-    elif(select == 'MatMult'):
-        result = cp.matmult(array, array2)
-    elif(select == 'Trans'):
-        result = cp.transpose(array)
-    elif(select == 'Inv'):
-        result = cp.inverse(array)
-    elif(select == 'Col'):
-        result = cp.column_space(array)
-    elif(select == 'Row'):
-        result = cp.row_space(array)
-    elif(select == 'Orthonor'):
-        result = cp.gramschmidt(array)
-    #elif(select == 'Orthogor'):
-    #    result = cp.matmult(array)
-    #elif(select == 'Norm'):
-    #   result = cp.matmult(array)
-    #-----------------------------------------------------#
-    elif(select == 'DFT'):
-        result = ad.DFT(array)
-    #elif(select == 'EIG'):
-        #result = ad.transpose(array)
-    elif(select == 'KRO'):
-        result = ad.Kroneckerproduct(array, array2)
-    elif(select == 'LAPL'):
-        result = ad.Graph_Lap(array)
-    elif(select == 'SVD'):
-        result = ad.svd_values(array)
-        print(result)
-    #elif(select == 'SPCL'):
-        #result = ad.gramschmidt(array)
-    elif(select == 'KCL'):
-        result = ad.clus_kmean(array)
-    elif(select == 'DMAT'):
-        result = ad.dist_mat(array, array2)
-    #elif(select == 'SHER'):
-        #result = ad.row_space(array)
-    #elif(select == 'KALM'):
-        #result = ad.gramschmidt(array)
-    return result
+    return maps[select](array) if array2 == [] else maps[select](array, array2)
 
 if __name__ == "__main__":
     app.run(debug = True, host='0.0.0.0', port=8080)

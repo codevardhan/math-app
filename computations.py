@@ -15,24 +15,18 @@ def subtraction(x, y):
     return result
 
 # element wise multiplication
-
-
 def multiplication(x, y):
     result = [[x[i][j] * y[i][j]
                for j in range(len(x[0]))] for i in range(len(x))]
     return result
 
 # multiplies matrix as a whole
-
-
 def matmult(x, y):
     result = [[sum(a*b for a, b in zip(X_row, Y_col))
                for Y_col in zip(*y)] for X_row in x]
     return result
 
 # Orthonormal basis
-
-
 def gramschmidt(A):   # Inputs an 2d array, each column represents a vector
     R = np.zeros((A.shape[1], A.shape[1]))
     Q = np.zeros(A.shape)
@@ -43,30 +37,23 @@ def gramschmidt(A):   # Inputs an 2d array, each column represents a vector
             R[k, j] = np.dot(Q[:, k], A[:, j])
             A[:, j] = A[:, j] - R[k, j]*Q[:, k]
     return Q  # Outputs one np array....columns of Q gives the orthonormal basis
-# transpose
 
-
+# Transpose
 def transpose(X):  # Input np array
     result = np.transpose(X)
     return result  # returns np array
 
 # Inverse
-
-
 def inverse(A):  # inputs an np array
     return np.linalg.inv(A)  # outputs an np array
 
 # Function for Column Space
-
-
 def column_space(A):  # takes a 2d np array where columns are vectors
     P, L, U = lu(A)
     col_sp_A = A[:, get_indices(U)]
     return col_sp_A  # returns a 2d np array with column space
 
 # Row Space
-
-
 def row_space(A):  # takes an 2d np array
     c = Matrix(A).rref()
     ef = np.array(c[0])
