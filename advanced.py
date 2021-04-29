@@ -34,3 +34,6 @@ def clus_kmean(arr, n):
 
 def transpose(arr):
     return -1
+
+def gramschmidt(arr):
+    return -1
