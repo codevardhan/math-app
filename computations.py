@@ -84,3 +84,12 @@ def get_indices(U: np.ndarray) -> list:
     )
     unique_indices = sorted(list(set(index_of_first_nonzero_col_in_each_row)))
     return unique_indices
+
+# Orthogonalisation
+def gramschmidt_otg(A):
+    n = A.shape[1]
+    for j in range(n):
+        for k in range(j):
+            A[:, j] -= np.dot(A[:, k], A[:, j]) * A[:, k]
+        A[:, j] = A[:, j] / np.linalg.norm(A[:, j])
+    return A
