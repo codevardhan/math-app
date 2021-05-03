@@ -32,9 +32,6 @@ def clus_kmean(arr, n):
     kmeans = KMeans(n_clusters=n, random_state=0).fit(X)
     return kmeans.cluster_centers_
 
-def transpose(arr):
-    return -1
-
 def gramschmidt(A):
     n = A.shape[1]
     for j in range(n):
