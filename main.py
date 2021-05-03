@@ -1,10 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import numpy as np
 import computations as cp
 import advanced as ad
 import traceback
 
+UPLOAD_FOLDER = 'uploads/'
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
@@ -34,7 +37,39 @@ def result():
         except:
             result = traceback.format_exc().splitlines()[-1]
             isError=True
-    return render_template('result/result.html', result = result, isError = isError)   
+        return render_template('result/result.html', result = result, isError = isError)
+    return render_template('result/result.html', result = "Function not called", isError = True)
+      
+
+@app.route('/files_upload', methods = ['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        print(request.files)
+        if not ('matrix_A' in request.files or 'matrix_b' in request.files):
+            err_message='Please upload a file'
+            return render_template('admm/admm.html', message=err_message)
+        matA = request.files['A']
+        matB = request.files['b']
+
+        if matA.filename == '' or matB.filename == '':
+            err_message='Please upload a file with a filename'
+            return render_template('admm/admm.html', message=err_message)
+        elif not(matA.endswith(".csv") and matB.endswith(".csv") ):
+            err_message='Uploaded file is not a csv file'
+            return render_template('admm/admm.html', message=err_message)
+        else:
+            matAdata = pd.read_csv(matA)
+            matBdata = pd.read_csv(matB)
+            try:
+                admm = ADMM(A, b, parallel = True)
+                result=admm.LassoObjective()
+            except:
+                result = traceback.format_exc().splitlines()[-1]
+                isError=True
+            return render_template('result/result.html', result = result, isError = isError)
+        return render_template('result/result.html', result = "Function not called", isError = True)
+
+
 
 @app.route('/advanced')
 def advanced():
@@ -43,6 +78,10 @@ def advanced():
 @app.route('/basic')
 def basic():
     return render_template('basic/basic.html')
+
+@app.route('/optimizaton-admm')
+def admm():
+    return render_template('admm/admm.html', message='')
 
 @app.route('/about')
 def about():
@@ -90,8 +129,8 @@ maps = {
     'SPCL' : ad.gramschmidt,
     'KCL' : ad.clus_kmean,
     'DMAT' : ad.dist_mat,
-    'SHER' : ad.row_space,
-    'KALM' : ad.gramschmidt
+    'SHER' : cp.row_space,
+    'KALM' : cp.gramschmidt
 }
 
 def select_function(select, array, array2=[]):

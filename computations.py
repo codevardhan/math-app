@@ -66,7 +66,7 @@ def row_space(A):  # takes an 2d np array
         sum = 0
         for j in range(col):
             sum += int(ef[i, j])
-        if (sum is not 0):
+        if (sum != 0):
             arr = np.append(arr, np.array([ef[i, :]]), axis = 0)
     return arr  # returns a 2d np array
 

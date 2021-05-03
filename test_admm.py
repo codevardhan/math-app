@@ -7,6 +7,7 @@ D = 20
 
 A = np.random.randn(N, D)
 b = np.random.randn(N, 1)
+
 print(A.shape)
 print("---------------")
 print(b.shape)

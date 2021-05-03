@@ -1,0 +1,17 @@
+{% extends "admm/admm_base.html" %}
+{% block basic_content %}
+    <script src="{{url_for('static', filename='basic.js')}}"></script>
+    <h5>Upload two CSV files.</h5>
+    
+    <form method="POST" action="{{ url_for('upload_file') }}">
+        <ul>
+            <li>Matrix A (mxn)</li>
+                <input type="file" name="matrix_A">
+            <li>Vector b (nx1)</li>
+                <input type="file" name="matrix_b">
+        </ul>
+        <p style="color:red">{{ message }}</p>
+        <input type=submit value="Try Our Implementation">
+
+    </form>
+{% endblock %}
