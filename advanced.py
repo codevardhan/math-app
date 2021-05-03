@@ -35,5 +35,10 @@ def clus_kmean(arr, n):
 def transpose(arr):
     return -1
 
-def gramschmidt(arr):
-    return -1
+def gramschmidt(A):
+    n = A.shape[1]
+    for j in range(n):
+        for k in range(j):
+            A[:, j] -= np.dot(A[:, k], A[:, j]) * A[:, k]
+        A[:, j] = A[:, j] / np.linalg.norm(A[:, j])
+    return A
