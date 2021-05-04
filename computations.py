@@ -47,6 +47,9 @@ def transpose(X):  # Input np array
 def inverse(A):  # inputs an np array
     return np.linalg.inv(A)  # outputs an np array
 
+def normalization(x):
+  return (x - x.min())/(x.max() - x.min())
+
 # Function for Column Space
 def column_space(A):  # takes a 2d np array where columns are vectors
     P, L, U = lu(A)

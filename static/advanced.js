@@ -19,6 +19,21 @@ function sizeSelect() {
     document.getElementById("matrix_1").innerHTML += "<p>Matrix</p>";
     document.getElementById("matrix_1").innerHTML += create_dropdown(1);
   }
+  if(operationName=="KCL"){ 
+    var select = document.createElement("select");
+    select.name = "n_clust";
+    select.id = "n_clust"
+ 
+    for (var i=1;i<=5;i++)
+    {
+        var option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        select.appendChild(option);
+    }
+    document.getElementById("other_options").appendChild(select);
+    }
+  }
 }
 
 function create_input() {
