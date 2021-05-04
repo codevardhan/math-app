@@ -19,22 +19,8 @@ function sizeSelect() {
     document.getElementById("matrix_1").innerHTML += "<p>Matrix</p>";
     document.getElementById("matrix_1").innerHTML += create_dropdown(1);
   }
-  if(operationName=="KCL"){ 
-    var select = document.createElement("select");
-    select.name = "n_clust";
-    select.id = "n_clust"
- 
-    for (var i=1;i<=5;i++)
-    {
-        var option = document.createElement("option");
-        option.value = i;
-        option.text = i;
-        select.appendChild(option);
-    }
-    document.getElementById("other_options").appendChild(select);
-    }
+  
   }
-}
 
 function create_input() {
   var operationName = operations.options[operations.selectedIndex].value;
@@ -42,6 +28,7 @@ function create_input() {
   var col1 = col1_size.options[col1_size.selectedIndex].value;
 
   document.getElementById("tables").innerHTML = "";
+  document.getElementById("other_options").innerHTML = "";
 
   if (
     operationName == "KRO" ||
@@ -55,6 +42,28 @@ function create_input() {
     var table = create_table(1, row1, col1);
   }
   document.getElementById("tables").innerHTML += table;
+  if(operationName=="KCL"){ 
+    var select = document.createElement("select");
+    select.name = "n_clust";
+    select.id = "n_clust"
+    
+    var option = document.createElement("option");
+
+    option.value="none";
+    option.text="Number of clusters"
+    option.disabled=true;
+    option.selected=true;
+    option.hidden=true;
+    select.appendChild(option);
+
+    for (var i=1;i<=5;i++) {
+        var option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        select.appendChild(option);
+    }
+    document.getElementById("other_options").appendChild(select);
+    }
 }
 
 function create_dropdown(option) {

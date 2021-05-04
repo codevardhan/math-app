@@ -10,7 +10,7 @@
             <option value="SVD">SVD</option>
             <option value="DMAT">Distance Matrix</option>
             <option value="SPCL">Spectral Clustering -X</option>
-            <option value="KCL">Kmeans Clustering -X</option>
+            <option value="KCL">Kmeans Clustering</option>
             <option value="SHER">Sherman Morisson -X</option>
             <option value="KALM">Kalmann filter -X</option>
         </select>
@@ -19,12 +19,15 @@
             
         </div>
         <br>
+        
         <input type="button" value="Create Input Table(s)" onclick=create_input()></input><br><br>
         <div id="tables">
         </div>
+
         <div id="other_options">
 
         </div>
+        <br>
         <input type = "submit" value = "Calculate!" />   
     </form>
 {% endblock %}

@@ -29,5 +29,5 @@ def dist_mat(arr, arrx):
 
 # Find Kmeans cluster of two arrays
 def clus_kmean(arr, n):
-    kmeans = KMeans(n_clusters=n, random_state=0).fit(X)
+    kmeans = KMeans(n_clusters=n, random_state=0).fit(arr)
     return kmeans.cluster_centers_

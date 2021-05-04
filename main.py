@@ -33,7 +33,11 @@ def result():
                 result = select_function(select, array, array2)
             else:
                 array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
-                result = select_function(select, array)
+                if(select=="KCL"):
+                    n_clust=int(request.form.get('n_clust'))
+                    result = select_function(select, array, [], n_clust)
+                else:
+                    result = select_function(select, array)
         except:
             result = traceback.format_exc().splitlines()[-1]
             isError=True
@@ -118,7 +122,6 @@ maps = {
     'Inv' : cp.inverse,
     'Col' : cp.column_space,
     'Row' : cp.row_space,
-    'Orthonor' : cp.gramschmidt,
     'Orthogor' : cp.matmult,
     'Norm' : cp.normalization,
     'DFT' : ad.dft,
@@ -132,8 +135,14 @@ maps = {
     'KALM' : cp.gramschmidt
 }
 
-def select_function(select, array, array2=[]):
-    return maps[select](array) if array2 == [] else maps[select](array, array2)
+def select_function(select, array, array2=[], option=None):
+    if option!=None:
+        print("perfect ok")           
+        return maps[select](array, option)
+    elif array2 == []:
+        return maps[select](array)
+    else:
+        maps[select](array, array2)
 
 if __name__ == "__main__":
     app.run(debug = True, host='0.0.0.0', port=8080)
