@@ -53,26 +53,7 @@ function create_input() {
   }
   document.getElementById("tables").innerHTML += table;
   if(operationName=="KCL"){ 
-    var select = document.createElement("select");
-    select.name = "n_clust";
-    select.id = "n_clust"
-    
-    var option = document.createElement("option");
-
-    option.value="none";
-    option.text="Number of clusters"
-    option.disabled=true;
-    option.selected=true;
-    option.hidden=true;
-    select.appendChild(option);
-
-    for (var i=1;i<=5;i++) {
-        var option = document.createElement("option");
-        option.value = i;
-        option.text = i;
-        select.appendChild(option);
-    }
-    document.getElementById("other_options").appendChild(select);
+      document.getElementById("other_options").innerHTML += create_int_dropdown("n_clust", "Number of clusters", 1, 5);
     }
 }
 
@@ -114,6 +95,7 @@ function create_table(option, row, col) {
   table += "</table>";
   return table;
 }
+
 function default_values(opName){
   if(opName=="KALM"){
     document.getElementById("row1_size").disabled = true;

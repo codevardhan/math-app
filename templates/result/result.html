@@ -4,6 +4,7 @@
   <table style="border: 1px solid green">
     {% if isError %}
       <p style="color:red">ERROR: {{ result }}</p>
+    
     {% elif result.ndim==1 %}
       <tr>
         {% for j in result %}

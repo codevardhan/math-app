@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import numpy as np
+from ADMM import ADMM
+import pandas as pd
 import computations as cp
 import advanced as ad
 import traceback
@@ -47,30 +49,34 @@ def result():
 
 @app.route('/files_upload', methods = ['GET', 'POST'])
 def upload_file():
+    isError=False
     if request.method == 'POST':
         print(request.files)
-        if not ('matrix_A' in request.files or 'matrix_b' in request.files):
+        if ('matrix_A' not in request.files or 'matrix_b' not in request.files):
             err_message='Please upload a file'
             return render_template('admm/admm.html', message=err_message)
-        matA = request.files['A']
-        matB = request.files['b']
+        matA = request.files['matrix_A']
+        matB = request.files['matrix_b']
 
         if matA.filename == '' or matB.filename == '':
             err_message='Please upload a file with a filename'
             return render_template('admm/admm.html', message=err_message)
-        elif not(matA.endswith(".csv") and matB.endswith(".csv") ):
+        elif not(matA.filename.endswith(".csv") and matB.filename.endswith(".csv") ):
             err_message='Uploaded file is not a csv file'
             return render_template('admm/admm.html', message=err_message)
         else:
-            matAdata = pd.read_csv(matA)
-            matBdata = pd.read_csv(matB)
+            matAdata = pd.read_csv(matA, header=None)
+            matBdata = pd.read_csv(matB, header=None)
+            print(matAdata)
+            print(matBdata)
             try:
-                admm = ADMM(A, b, parallel = True)
-                result=admm.LassoObjective()
+                admm = ADMM(matAdata, matBdata, parallel = True)
+                result = str(admm.LassoObjective())
+                weights = admm.LassoWeights()
             except:
                 result = traceback.format_exc().splitlines()[-1]
                 isError=True
-            return render_template('result/result.html', result = result, isError = isError)
+            return render_template('result/result_admm.html', result = result, weights = weights, isError = isError)
         return render_template('result/result.html', result = "Function not called", isError = True)
 
 

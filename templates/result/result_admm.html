@@ -1,0 +1,20 @@
+{% extends "result/result_base.html" %} {% block admm_result %}
+
+<div id="tables">
+  <table style="border: 1px solid green">
+    {% if isError %}
+      <p style="color:red">ERROR: {{ result }}</p>
+    {% else %}
+      {{ "Lasso Objective: " + result}}<br>
+      <tr>
+        Lasso Weights:
+        {% for i in weights %}
+          <th>{{ i }}</th>
+        {% endfor %}
+      </tr>
+    {% endif %}
+
+  </table>
+</div>
+<input type="button" value="Go Back" onclick="history.back()" />
+{% endblock %}
