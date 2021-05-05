@@ -15,12 +15,10 @@ Basic Operations:
   + Inverse
   + Column space
   + Row space
-  + Orthogonalization (Gram Schmidt)
   + Orthonormalization (Gram Schmidt)
   
 Advanced Operations:
   + Fourier matrix and dft
-  + Eigenvalues of circulant
   + The Kroncker product
   + Toeplitz matrix
   + Graph Laplacian Matrix
