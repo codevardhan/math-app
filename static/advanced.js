@@ -3,42 +3,52 @@ function sizeSelect() {
   var operationName = operations.options[operations.selectedIndex].value;
   if (
     operationName == "KRO" ||
-    operationName == "DMAT"
+    operationName == "DMAT" ||
+    operationName == "KALM"
   ) {
     document.getElementById("arr_size_select").innerHTML =
       '<div style="width: 50%; float: left;" id="matrix_1"></div>';
     document.getElementById("arr_size_select").innerHTML +=
       '<div style="width: 50%; float: left;" id="matrix_2"></div>';
     document.getElementById("matrix_1").innerHTML += "<p>Matrix 1</p>";
-    document.getElementById("matrix_1").innerHTML += create_dropdown(1);
+    document.getElementById("matrix_1").innerHTML += create_int_dropdown("row1_size", "Row", 1, 10);
+    document.getElementById("matrix_1").innerHTML += create_int_dropdown("col1_size", "Column", 1, 10);
     document.getElementById("matrix_2").innerHTML += "<p>Matrix 2</p>";
-    document.getElementById("matrix_2").innerHTML += create_dropdown(2);
-  } else {
+    document.getElementById("matrix_2").innerHTML += create_int_dropdown("row2_size", "Row", 1, 10);
+    document.getElementById("matrix_2").innerHTML += create_int_dropdown("col2_size", "Column", 1, 10);
+  }
+  else {
     document.getElementById("arr_size_select").innerHTML =
       '<div id="matrix_1"></div>';
     document.getElementById("matrix_1").innerHTML += "<p>Matrix</p>";
-    document.getElementById("matrix_1").innerHTML += create_dropdown(1);
+    document.getElementById("matrix_1").innerHTML += create_int_dropdown("row1_size", "Row", 1, 10);
+    document.getElementById("matrix_1").innerHTML += create_int_dropdown("col1_size", "Column", 1, 10);
   }
-  
+  default_values(operationName);
   }
 
 function create_input() {
   var operationName = operations.options[operations.selectedIndex].value;
-  var row1 = row1_size.options[row1_size.selectedIndex].value;
-  var col1 = col1_size.options[col1_size.selectedIndex].value;
 
   document.getElementById("tables").innerHTML = "";
   document.getElementById("other_options").innerHTML = "";
 
   if (
     operationName == "KRO" ||
-    operationName == "DMAT"
+    operationName == "DMAT" ||
+    operationName == "KALM"
+
   ) {
+    var row1 = row1_size.options[row1_size.selectedIndex].value;
+    var col1 = col1_size.options[col1_size.selectedIndex].value;
     var row2 = row2_size.options[row2_size.selectedIndex].value;
     var col2 = col2_size.options[col2_size.selectedIndex].value;
     var table = create_table(1, row1, col1);
     table += create_table(2, row2, col2);
-  } else {
+  }
+  else {
+    var row1 = row1_size.options[row1_size.selectedIndex].value;
+    var col1 = col1_size.options[col1_size.selectedIndex].value;
     var table = create_table(1, row1, col1);
   }
   document.getElementById("tables").innerHTML += table;
@@ -66,29 +76,22 @@ function create_input() {
     }
 }
 
-function create_dropdown(option) {
-  var row_size_select =
-    "<select id='row" +
-    option.toString() +
-    "_size' name='row" +
-    option.toString() +
-    "_size'><option value='none' selected disabled hidden>Row</option>";
-  var col_size_select =
-    "<select id='col" +
-    option.toString() +
-    "_size' name='col" +
-    option.toString() +
-    "_size'><option value='none' selected disabled hidden>Column</option>";
-  for (var i = 1; i <= 10; i++) {
-    row_size_select +=
-      "<option value='" + i.toString() + "'>" + i.toString() + "</option>";
-    col_size_select +=
+function create_int_dropdown(unique_id, text, start, end) {
+  var dropdown_list =
+    "<select id='" +
+    unique_id.toString() +
+    "' name='" +
+    unique_id.toString() +
+    "'><option value='none' selected disabled hidden>"+text+"</option>";
+
+  for (var i = start; i <= end; i++) {
+    dropdown_list +=
       "<option value='" + i.toString() + "'>" + i.toString() + "</option>";
   }
-  row_size_select += "</select>";
-  col_size_select += "</select>";
-  return row_size_select + col_size_select;
+  dropdown_list += "</select>";
+  return dropdown_list;
 }
+
 function create_table(option, row, col) {
   if (option == 2) {
     var table = '<table style="border:1px solid green;">';
@@ -110,4 +113,31 @@ function create_table(option, row, col) {
   }
   table += "</table>";
   return table;
+}
+function default_values(opName){
+  if(opName=="KALM"){
+    document.getElementById("row1_size").disabled = true;
+    document.getElementById("row1_size").value  = 1;
+
+    var row1_in = document.createElement("input");
+    row1_in.setAttribute("type", "hidden");
+    row1_in.setAttribute("name", "row1_size");
+    row1_in.setAttribute("value", "1");
+
+    document.getElementById("row2_size").disabled = true;
+    document.getElementById("row2_size").value  = 1;
+
+    var row2_in = document.createElement("input");
+    row2_in.setAttribute("type", "hidden");
+    row2_in.setAttribute("name", "row2_size");
+    row2_in.setAttribute("value", "1");
+
+    document.getElementById("arr_size_select").appendChild(row1_in);
+    document.getElementById("arr_size_select").appendChild(row2_in);
+
+    document.getElementById("col2_size").onchange = function(){
+      document.getElementById("col1_size").value = document.getElementById("col2_size").value ;};
+    document.getElementById("col1_size").onchange = function(){
+      document.getElementById("col2_size").value = document.getElementById("col1_size").value ;};
+  }
 }

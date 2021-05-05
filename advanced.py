@@ -1,5 +1,6 @@
 from flask import Flask
 import numpy as np
+import KalmanFilter as kalm
 from scipy.sparse import csgraph
 from scipy.linalg import svdvals
 from scipy.spatial import distance_matrix
@@ -31,3 +32,6 @@ def dist_mat(arr, arrx):
 def clus_kmean(arr, n):
     kmeans = KMeans(n_clusters=n, random_state=0).fit(arr)
     return kmeans.cluster_centers_
+
+def kalmann_filter(arr1, arr2):
+    return kalm.KalmanFilter(arr1.flatten(), arr2.flatten())

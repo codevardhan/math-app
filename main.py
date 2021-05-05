@@ -7,7 +7,6 @@ import traceback
 UPLOAD_FOLDER = 'uploads/'
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
@@ -31,6 +30,7 @@ def result():
                 array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
                 array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
                 result = select_function(select, array, array2)
+                print(result)
             else:
                 array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
                 if(select=="KCL"):
@@ -100,7 +100,7 @@ def page_not_found(e):
     return render_template('errors/500.html'), 500
 
 def num_arrays(select):
-    if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div' or select=="KRO" or select=="DMAT"):
+    if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div' or select=="KRO" or select=="DMAT" or select =="KALM"):
         return 2
     else:
         return 1
@@ -132,17 +132,16 @@ maps = {
     'KCL' : ad.clus_kmean,
     'DMAT' : ad.dist_mat,
     'SHER' : cp.row_space,
-    'KALM' : cp.gramschmidt
+    'KALM' : ad.kalmann_filter
 }
 
 def select_function(select, array, array2=[], option=None):
-    if option!=None:
-        print("perfect ok")           
+    if option!=None:          
         return maps[select](array, option)
     elif array2 == []:
         return maps[select](array)
     else:
-        maps[select](array, array2)
+        return maps[select](array, array2)
 
 if __name__ == "__main__":
     app.run(debug = True, host='0.0.0.0', port=8080)
