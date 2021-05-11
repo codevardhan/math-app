@@ -25,24 +25,24 @@ def result():
         c1 = int(request.form.get('col1_size'))
         no_of_arrays = num_arrays(select)
 
-        try:
-            if (no_of_arrays == 2):
-                r2 = int(request.form.get('row2_size'))
-                c2 = int(request.form.get('col2_size'))
-                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
-                array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
-                result = select_function(select, array, array2)
-                print(result)
+        #try:
+        if (no_of_arrays == 2):
+            r2 = int(request.form.get('row2_size'))
+            c2 = int(request.form.get('col2_size'))
+            array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+            array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
+            result = select_function(select, array, array2)
+            print(result)
+        else:
+            array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+            if(select=="KCL"):
+                n_clust=int(request.form.get('n_clust'))
+                result = select_function(select, array, [], n_clust)
             else:
-                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
-                if(select=="KCL"):
-                    n_clust=int(request.form.get('n_clust'))
-                    result = select_function(select, array, [], n_clust)
-                else:
-                    result = select_function(select, array)
-        except:
-            result = traceback.format_exc().splitlines()[-1]
-            isError=True
+                result = select_function(select, array)
+        #except:
+        #result = traceback.format_exc().splitlines()[-1]
+        #isError=True
         return render_template('result/result.html', result = result, isError = isError)
     return render_template('result/result.html', result = "Function not called", isError = True)
       
@@ -98,15 +98,15 @@ def about():
     return render_template('about.html')
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found_404(e):
     return render_template('errors/404.html'), 404
 
 @app.errorhandler(500)
-def page_not_found(e):
+def page_not_found_500(e):
     return render_template('errors/500.html'), 500
 
 def num_arrays(select):
-    if (select == 'Add' or select == 'Sub' or select == 'Mult' or select == 'Div' or select=="KRO" or select=="DMAT" or select =="KALM"):
+    if (select == 'Add' or select == 'Sub' or select=='MatMult' or select == 'Mult' or select == 'Div' or select=="KRO" or select=="DMAT" or select =="KALM"):
         return 2
     else:
         return 1
