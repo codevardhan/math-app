@@ -4,16 +4,16 @@
     <form method="POST" action="{{ url_for('result') }}">
         <select id="operations" name="operations" onchange="sizeSelect()">
             <option value="none" selected disabled hidden>Select Operation</option>
-            <option value="Add">Addition</option>
-            <option value="Sub">Subtraction</option>
-            <option value="Mult">Elementwise Multiplication</option>
-            <option value="MatMult">Matrix Multiplication</option>
-            <option value="Norm">Normalization</option>
-            <option value="Trans">Transpose</option>
-            <option value="Inv">Inverse</option>
-            <option value="Col">Column space</option>
-            <option value="Row">Row space</option>
-            <option value="Orthonor">Orthonormalization (Gram Schmidt)</option>
+            <option value="ADD">Addition</option>
+            <option value="SUB">Subtraction</option>
+            <option value="ELEMMULT">Elementwise Multiplication</option>
+            <option value="MATMULT">Matrix Multiplication</option>
+            <option value="NORM">Normalization</option>
+            <option value="TRANS">Transpose</option>
+            <option value="INV">Inverse</option>
+            <option value="COLSP">Column space</option>
+            <option value="ROWSP">Row space</option>
+            <option value="GRAMORTHONOR">Orthonormalization (Gram Schmidt)</option>
         </select>
         <br>
         <div id="arr_size_select">

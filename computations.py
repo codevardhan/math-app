@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.linalg import lu
-from sympy import *
+from sympy import Matrix
 
 
 def addition(x, y):
@@ -52,7 +52,7 @@ def normalization(x):
 
 # Function for Column Space
 def column_space(A):  # takes a 2d np array where columns are vectors
-    P, L, U = lu(A)
+    _, _, U = lu(A) # pylint: disable=unbalanced-tuple-unpacking
     col_sp_A = A[:, get_indices(U)]
     return col_sp_A  # returns a 2d np array with column space
 
@@ -61,7 +61,6 @@ def row_space(A):  # takes an 2d np array
     c = Matrix(A).rref()
     ef = np.array(c[0])
     row, col = ef.shape
-    flag = False
 
     arr = np.empty((0, col), int)
 
@@ -87,12 +86,3 @@ def get_indices(U: np.ndarray) -> list:
     )
     unique_indices = sorted(list(set(index_of_first_nonzero_col_in_each_row)))
     return unique_indices
-
-# Orthogonalisation
-def gramschmidt_otg(A):
-    n = A.shape[1]
-    for j in range(n):
-        for k in range(j):
-            A[:, j] -= np.dot(A[:, k], A[:, j]) * A[:, k]
-        A[:, j] = A[:, j] / np.linalg.norm(A[:, j])
-    return A
