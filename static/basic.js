@@ -2,10 +2,10 @@ function sizeSelect() {
   document.getElementById("arr_size_select").innerHTML = "";
   var operationName = operations.options[operations.selectedIndex].value;
   if (
-    operationName == "Add" ||
-    operationName == "Sub" ||
-    operationName == "Mult" ||
-    operationName == "MatMult"
+    operationName == "ADD" ||
+    operationName == "SUB" ||
+    operationName == "ELEMMULT" ||
+    operationName == "MATMULT"
   ) {
     document.getElementById("arr_size_select").innerHTML =
       '<div style="width: 50%; float: left;" id="matrix_1"></div>';
@@ -31,10 +31,10 @@ function create_input() {
   document.getElementById("tables").innerHTML = "";
 
   if (
-    operationName == "Add" ||
-    operationName == "Sub" ||
-    operationName == "Mult" ||
-    operationName == "MatMult"
+    operationName == "ADD" ||
+    operationName == "SUB" ||
+    operationName == "ELEMMULT" ||
+    operationName == "MATMULT"
   ) {
     var row2 = row2_size.options[row2_size.selectedIndex].value;
     var col2 = col2_size.options[col2_size.selectedIndex].value;

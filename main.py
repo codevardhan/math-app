@@ -106,7 +106,7 @@ def page_not_found_500(e):
     return render_template('errors/500.html'), 500
 
 def num_arrays(select):
-    if (select == 'Add' or select == 'Sub' or select=='MatMult' or select == 'Mult' or select == 'Div' or select=="KRO" or select=="DMAT" or select =="KALM"):
+    if (select == 'ADD' or select == 'SUB' or select=='ELEMMULT' or select == 'MATMULT' or select=="KRO" or select=="DMAT" or select =="KALM"):
         return 2
     else:
         return 1
