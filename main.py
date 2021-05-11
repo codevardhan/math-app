@@ -129,7 +129,7 @@ maps = {
     'Col' : cp.column_space,
     'Row' : cp.row_space,
     'Orthogor' : cp.matmult,
-    'Norm' : cp.normalization,
+    'Orthonor' : cp.normalization,
     'DFT' : ad.dft,
     'KRO' : ad.Kroneckerproduct,
     'LAPL' : ad.Graph_Lap,
