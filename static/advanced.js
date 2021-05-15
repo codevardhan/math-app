@@ -1,6 +1,61 @@
 function sizeSelect() {
+  const data = {
+    "DFT":{
+      "Desc": "A DFT matrix is an expression of a discrete Fourier transform (DFT) as a transformation matrix, which can be applied to a signal through matrix multiplication.",
+      "Inp": "Size of the matrix to create and the scale of matrix to be divided.",
+      "Out": "The DFT matrix."
+    },
+    "KRO":{
+      "Desc": "Computes the Kronecker product, a composite array made of blocks of the second array scaled by the first.",
+      "Inp": "Two arrays a and b of same dimension",
+      "Out": "Kronecker Product , where b is scaled by a"
+    },
+    "LAPL":{
+      "Desc": "The Laplacian matrix can be used to find many useful properties of a graph. Together with Kirchhoff's theorem, it can be used to calculate the number of spanning trees for a given graph",
+      "Inp": "Size of the matrix to create and the scale of matrix to be divided",
+      "Out": "The Laplacian matrix."
+    },
+    "SVD":{
+      "Desc": "In linear algebra, the singular value decomposition is a factorization of a real or complex matrix that generalizes the eigendecomposition of a square normal matrix to any m\times n matrix via an extension of the polar decomposition. In contrast to the Eigenvalue decomposition, the SVD of a matrix always exists.",
+      "Inp": "",
+      "Out": ""
+    },
+    "DMAT":{
+      "Desc": "",
+      "Inp": "",
+      "Out": ""
+    },
+    "SPCL":{
+      "Desc": "",
+      "Inp": "",
+      "Out": ""
+    },
+    "KCL":{
+      "Desc": "",
+      "Inp": "",
+      "Out": ""
+    },
+    "SHER":{
+      "Desc": "",
+      "Inp": "",
+      "Out": ""
+    },
+    "KALM":{
+      "Desc": "Kalman filtering,is an algorithm that uses a series of measurements observed over time, containing statistical noise and other inaccuracies, and produces estimates of unknown variables,by estimating a joint probability distribution over the variables for each timeframe. This model can be used to predict position and velocity of an object in an axis based on the observed positions and velocity. The off-diagonal values in covariance matrices are zeroed out",
+      "Inp": "Observed positions on an axis and the corresponding velocities as two lists",
+      "Out": "Predicted position and velocity in an array"
+    },
+  };
   document.getElementById("arr_size_select").innerHTML = "";
   var operationName = operations.options[operations.selectedIndex].value;
+  document.getElementById("desc").innerHTML = "";
+  document.getElementById("arr_size_select").innerHTML = "";
+  document.getElementById("desc").innerHTML += "<h3>Description:</h3>";
+  document.getElementById("desc").innerHTML += data[operationName].Desc;
+  document.getElementById("desc").innerHTML += "<br> <h3>Input:</h3>";
+  document.getElementById("desc").innerHTML += data[operationName].Inp;
+  document.getElementById("desc").innerHTML += "<br> <h3>Output:</h3>";
+  document.getElementById("desc").innerHTML += data[operationName].Out;
   if (
     operationName == "KRO" ||
     operationName == "DMAT" ||
