@@ -31,21 +31,21 @@
               <header>
                 <h1>
                   Math App,<br />
-                  a matrix Calculator
+                  A Student Friendly Matrix Calculator
                 </h1>
                 <p>
-                  Two random variables were talking in a bar. They thought they
-                  were being discrete but I heard their chatter continuously.xD
+                  A web application aimed at students taking an introductory course in Linear Algebra. 
                 </p>
               </header>
-              <p>Enter brief description</p>
+              <p>
+                This app offers verification of results for a multitude of basic and advanced caluculations! Scroll down for more info!!</p>
               <ul class="actions">
-                <li><a href="#content" class="button big">Learn More</a></li>
+                <li><button type="button" class="button big" onClick="document.getElementById('major').scrollIntoView();">Learn More</button></li>
               </ul>
             </div>
             <span class="image object">
               <img
-                src="{{url_for('static', filename='images/pic10.jpg')}}"
+                src="{{url_for('static', filename='images/MathApp.png')}}"
                 alt=""
               />
             </span>
@@ -53,13 +53,13 @@
 
           <!-- Section -->
           <section>
-            <header class="major">
+            <header class="major" id=major>
               <h2>Calculations you can do here</h2>
             </header>
             <div class="features">
               <article>
                 <span class="icon solid fa-check"></span>
-                <div class="content">
+                <div class="content" id="content">
                   <h3>Basic Operations</h3>
                   <p>
                     All basic operations such as Classification, Addition,

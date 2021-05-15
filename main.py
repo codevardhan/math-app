@@ -25,24 +25,24 @@ def result():
         c1 = int(request.form.get('col1_size'))
         no_of_arrays = num_arrays(select)
 
-        #try:
-        if (no_of_arrays == 2):
-            r2 = int(request.form.get('row2_size'))
-            c2 = int(request.form.get('col2_size'))
-            array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
-            array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
-            result = select_function(select, array, array2)
-            print(result)
-        else:
-            array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
-            if(select=="KCL"):
-                n_clust=int(request.form.get('n_clust'))
-                result = select_function(select, array, [], n_clust)
+        try:
+            if (no_of_arrays == 2):
+                r2 = int(request.form.get('row2_size'))
+                c2 = int(request.form.get('col2_size'))
+                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+                array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
+                result = select_function(select, array, array2)
+                print(result)
             else:
-                result = select_function(select, array)
-        #except:
-        #result = traceback.format_exc().splitlines()[-1]
-        #isError=True
+                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+                if(select=="KCL"):
+                    n_clust=int(request.form.get('n_clust'))
+                    result = select_function(select, array, [], n_clust)
+                else:
+                    result = select_function(select, array)
+        except:
+            result = traceback.format_exc().splitlines()[-1]
+            isError=True
         return render_template('result/result.html', result = result, isError = isError)
     return render_template('result/result.html', result = "Function not called", isError = True)
       
@@ -134,7 +134,6 @@ maps = {
     'KRO' : ad.Kroneckerproduct,
     'LAPL' : ad.Graph_Lap,
     'SVD' : ad.svd_values,
-    'SPCL' : '',
     'KCL' : ad.clus_kmean,
     'DMAT' : ad.dist_mat,
     'SHER' : cp.row_space,
@@ -150,4 +149,4 @@ def select_function(select, array, array2=[], option=None):
         return maps[select](array, array2)
 
 if __name__ == "__main__":
-    app.run(debug = True, host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080)
