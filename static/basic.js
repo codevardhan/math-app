@@ -1,6 +1,67 @@
 function sizeSelect() {
-  document.getElementById("arr_size_select").innerHTML = "";
+  const data = {
+    "ADD":{
+      "Desc": "This operation is used to add 2 matrices.",
+      "Inp": "Enter 2 matrices that are of the same dimensions m*n.",
+      "Out": "The sum of the 2 matrices of dimension m*n."
+    },
+    "SUB":{
+      "Desc": "This operation is used to subtract the second matrix from the first.",
+      "Inp": "Enter 2 matrices that are of the same dimensions m*n.",
+      "Out":"The difference of the 2 matrices of dimension m*n."
+    },
+    "ELEMMULT":{
+      "Desc": "This operation is used to multiply 2 matrices element-wise.",
+      "Inp": "Enter 2 matrices that are of the same dimensions m*n.",
+      "Out": "The element-wise product of the 2 matrices of dimension m*n."
+    },
+    "MATMULT":{
+      "Desc": "This operation is used to multiply 2 matrices.",
+      "Inp": "Enter 2 matrices that are of dimensions m*k and k*n.",
+      "Out": "The product of the 2 matrices of dimension m*n."
+    },
+    "NORM":{
+      "Desc": "This operation is used to normalize the input matrix.",
+      "Inp": "Enter a matrix of dimensions m*n.",
+      "Out": "The transpose matrix of dimension n*m."
+    },
+    "TRANS":{
+      "Desc": "This operation is used to find the transpose of the input matrix.",
+      "Inp": "Enter a matrix of dimensions m*n.",
+      "Out": "Normalized matrix of dimension n*m."
+    },
+    "INV":{
+      "Desc": "This operation is used to find the inverse of the input matrix.",
+      "Inp": "Enter a matrix of dimensions m*n.",
+      "Out": "The inverse matrix of dimension m*n."
+    },
+    "COLSP":{
+      "Desc": "This operation is used to find the column space of the input matrix.",
+      "Inp": "Enter a matrix of dimensions m*n.",
+      "Out": "The columns of the column space m*1."
+    },
+    "ROWSP":{
+      "Desc": "This operation is used to find the row space of the input matrix.",
+      "Inp": "Enter a matrix of dimensions m*n.",
+      "Out": "The rows of the row space 1*n."
+    },
+    "GRAMORTHONOR":{
+      "Desc": "This operation is used to orthogonalize the input matrix.",
+      "Inp": "Enter a matrix of dimensions m*n.",
+      "Out": "The orthonormalized matrix of dimension m*n."
+    }
+  };
   var operationName = operations.options[operations.selectedIndex].value;
+
+  document.getElementById("desc").innerHTML = "";
+  document.getElementById("arr_size_select").innerHTML = "";
+  document.getElementById("desc").innerHTML += "<h3>Description:</h3>";
+  document.getElementById("desc").innerHTML += data[operationName].Desc;
+  document.getElementById("desc").innerHTML += "<br> <h3>Input:</h3>";
+  document.getElementById("desc").innerHTML += data[operationName].Inp;
+  document.getElementById("desc").innerHTML += "<br> <h3>Output:</h3>";
+  document.getElementById("desc").innerHTML += data[operationName].Out;
+  
   if (
     operationName == "ADD" ||
     operationName == "SUB" ||
