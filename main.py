@@ -19,7 +19,7 @@ def result():
     result = ''
     isError = False
     if (request.method == 'POST'):
-        #print(request.form)
+        print(request.form)
         select = request.form.get('operations')
         r1 = int(request.form.get('row1_size'))
         c1 = int(request.form.get('col1_size'))
@@ -32,12 +32,20 @@ def result():
                 array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
                 array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
                 result = select_function(select, array, array2)
-                print(result)
+            elif (no_of_arrays == 3):
+                r2 = int(request.form.get('row2_size'))
+                c2 = int(request.form.get('col2_size'))
+                r3 = int(request.form.get('row3_size'))
+                c3 = int(request.form.get('col3_size'))
+                array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
+                array2 = input_arr(np.zeros((r2, c2)), 2, r2, c2)
+                array3 = input_arr(np.zeros((r3, c3)), 3, r3, c3)
+                result = select_function(select, array, array2, array3)
             else:
                 array = input_arr(np.zeros((r1, c1)), 1, r1, c1)
                 if(select=="KCL"):
                     n_clust=int(request.form.get('n_clust'))
-                    result = select_function(select, array, [], n_clust)
+                    result = select_function(select, array, [], [], n_clust)
                 else:
                     result = select_function(select, array)
         except:
@@ -108,6 +116,8 @@ def page_not_found_500(e):
 def num_arrays(select):
     if (select == 'ADD' or select == 'SUB' or select=='ELEMMULT' or select == 'MATMULT' or select=="KRO" or select=="DMAT" or select =="KALM"):
         return 2
+    elif (select == "SHER"):
+        return 3  
     else:
         return 1
 
@@ -136,17 +146,19 @@ maps = {
     'SVD' : ad.svd_values,
     'KCL' : ad.clus_kmean,
     'DMAT' : ad.dist_mat,
-    'SHER' : cp.row_space,
+    'SHER' : ad.SMInv,
     'KALM' : ad.kalmann_filter
 }
 
-def select_function(select, array, array2=[], option=None):
+def select_function(select, array, array2=[], array3=[], option=None):
     if option!=None:          
         return maps[select](array, option)
     elif array2 == []:
         return maps[select](array)
-    else:
+    elif array3 == []:
         return maps[select](array, array2)
+    else:
+        return maps[select](array, array2, array3)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)

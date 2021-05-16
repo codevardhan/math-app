@@ -55,12 +55,12 @@ function sizeSelect() {
 
   document.getElementById("desc").innerHTML = "";
   document.getElementById("arr_size_select").innerHTML = "";
-  document.getElementById("desc").innerHTML += "<h3>Description:</h3>";
-  document.getElementById("desc").innerHTML += data[operationName].Desc;
-  document.getElementById("desc").innerHTML += "<br> <h3>Input:</h3>";
-  document.getElementById("desc").innerHTML += data[operationName].Inp;
-  document.getElementById("desc").innerHTML += "<br> <h3>Output:</h3>";
-  document.getElementById("desc").innerHTML += data[operationName].Out;
+  document.getElementById("desc").innerHTML += "<b>Description:</b><br>";
+  document.getElementById("desc").innerHTML += data[operationName].Desc + "<br>";
+  document.getElementById("desc").innerHTML += "<b>Input:</b><br>";
+  document.getElementById("desc").innerHTML += data[operationName].Inp + "<br>";
+  document.getElementById("desc").innerHTML += "<b>Output:</b><br>";
+  document.getElementById("desc").innerHTML += data[operationName].Out + "<br>";
   
   if (
     operationName == "ADD" ||

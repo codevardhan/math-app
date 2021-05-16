@@ -35,3 +35,12 @@ def clus_kmean(arr, n):
 
 def kalmann_filter(arr1, arr2):
     return kalm.KalmanFilter(arr1.flatten(), arr2.flatten())
+
+def SMInv(Ainv, u, v, e=None):
+    u = u.reshape((len(u),1))
+    v = v.reshape((len(v),1))
+    if e is not None:
+        g = np.dot(Ainv, u) / (e + np.dot(v.T, np.dot(Ainv, u)))			
+        return (Ainv / e) - np.dot(g, np.dot(v.T, Ainv/e))
+    else:
+        return Ainv - np.dot(Ainv, np.dot(np.dot(u,v.T), Ainv)) / ( 1 + np.dot(v.T, np.dot(Ainv, u)))

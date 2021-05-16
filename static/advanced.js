@@ -25,11 +25,6 @@ function sizeSelect() {
       "Inp": "",
       "Out": ""
     },
-    "SPCL":{
-      "Desc": "",
-      "Inp": "",
-      "Out": ""
-    },
     "KCL":{
       "Desc": "",
       "Inp": "",
@@ -50,12 +45,12 @@ function sizeSelect() {
   var operationName = operations.options[operations.selectedIndex].value;
   document.getElementById("desc").innerHTML = "";
   document.getElementById("arr_size_select").innerHTML = "";
-  document.getElementById("desc").innerHTML += "<h3>Description:</h3>";
-  document.getElementById("desc").innerHTML += data[operationName].Desc;
-  document.getElementById("desc").innerHTML += "<br> <h3>Input:</h3>";
-  document.getElementById("desc").innerHTML += data[operationName].Inp;
-  document.getElementById("desc").innerHTML += "<br> <h3>Output:</h3>";
-  document.getElementById("desc").innerHTML += data[operationName].Out;
+  document.getElementById("desc").innerHTML += "<b>Description:</b><br>";
+  document.getElementById("desc").innerHTML += data[operationName].Desc + "<br>";
+  document.getElementById("desc").innerHTML += "<b>Input:</b><br>";
+  document.getElementById("desc").innerHTML += data[operationName].Inp + "<br>";
+  document.getElementById("desc").innerHTML += "<b>Output:</b><br>";
+  document.getElementById("desc").innerHTML += data[operationName].Out + "<br>";
   if (
     operationName == "KRO" ||
     operationName == "DMAT" ||
@@ -71,6 +66,23 @@ function sizeSelect() {
     document.getElementById("matrix_2").innerHTML += "<p>Matrix 2</p>";
     document.getElementById("matrix_2").innerHTML += create_int_dropdown("row2_size", "Row", 1, 10);
     document.getElementById("matrix_2").innerHTML += create_int_dropdown("col2_size", "Column", 1, 10);
+  }
+  else if(operationName=="SHER"){
+    document.getElementById("arr_size_select").innerHTML =
+      '<div style="width: 33%; float: left;" id="matrix_1"></div>';
+    document.getElementById("arr_size_select").innerHTML +=
+      '<div style="width: 33%; float: left;" id="matrix_2"></div>';
+      document.getElementById("arr_size_select").innerHTML +=
+      '<div style="width: 33%; float: left;" id="matrix_3"></div>';
+    document.getElementById("matrix_1").innerHTML += "<p>Matrix 1</p>";
+    document.getElementById("matrix_1").innerHTML += create_int_dropdown("row1_size", "Row", 1, 10);
+    document.getElementById("matrix_1").innerHTML += create_int_dropdown("col1_size", "Column", 1, 10);
+    document.getElementById("matrix_2").innerHTML += "<p>Array 1</p>";
+    document.getElementById("matrix_2").innerHTML += create_int_dropdown("row2_size", "Row", 1, 10);
+    document.getElementById("matrix_2").innerHTML += create_int_dropdown("col2_size", "Column", 1, 10);
+    document.getElementById("matrix_3").innerHTML += "<p>Array 2</p>";
+    document.getElementById("matrix_3").innerHTML += create_int_dropdown("row3_size", "Row", 1, 10);
+    document.getElementById("matrix_3").innerHTML += create_int_dropdown("col3_size", "Column", 1, 10);
   }
   else {
     document.getElementById("arr_size_select").innerHTML =
@@ -100,6 +112,17 @@ function create_input() {
     var col2 = col2_size.options[col2_size.selectedIndex].value;
     var table = create_table(1, row1, col1);
     table += create_table(2, row2, col2);
+  }
+  else if(operationName == "SHER"){
+    var row1 = row1_size.options[row1_size.selectedIndex].value;
+    var col1 = col1_size.options[col1_size.selectedIndex].value;
+    var row2 = row2_size.options[row2_size.selectedIndex].value;
+    var col2 = col2_size.options[col2_size.selectedIndex].value;
+    var row3 = row3_size.options[row3_size.selectedIndex].value;
+    var col3 = col3_size.options[col3_size.selectedIndex].value;
+    var table = create_table(1, row1, col1);
+    table += create_table(2, row2, col2);
+    table += create_table(3, row3, col3);
   }
   else {
     var row1 = row1_size.options[row1_size.selectedIndex].value;
@@ -176,5 +199,51 @@ function default_values(opName){
       document.getElementById("col1_size").value = document.getElementById("col2_size").value ;};
     document.getElementById("col1_size").onchange = function(){
       document.getElementById("col2_size").value = document.getElementById("col1_size").value ;};
+  }
+  if(opName=="SHER"){
+    document.getElementById("row2_size").disabled = true;
+    document.getElementById("row2_size").value  = 1;
+
+    var row2_in = document.createElement("input");
+    row2_in.setAttribute("type", "hidden");
+    row2_in.setAttribute("name", "row2_size");
+    row2_in.setAttribute("value", "1");
+
+    document.getElementById("row3_size").disabled = true;
+    document.getElementById("row3_size").value  = 1;
+
+    var row3_in = document.createElement("input");
+    row3_in.setAttribute("type", "hidden");
+    row3_in.setAttribute("name", "row3_size");
+    row3_in.setAttribute("value", "1");
+
+    document.getElementById("arr_size_select").appendChild(row2_in);
+    document.getElementById("arr_size_select").appendChild(row3_in);
+
+    document.getElementById("row1_size").onchange = function(){
+      var changed_val = document.getElementById("row1_size").value;
+      document.getElementById("col1_size").value = changed_val;
+      document.getElementById("col2_size").value = changed_val;
+      document.getElementById("col3_size").value = changed_val;
+    }
+
+    document.getElementById("col1_size").onchange = function(){
+      var changed_val = document.getElementById("col1_size").value;
+      document.getElementById("row1_size").value = changed_val;
+      document.getElementById("col2_size").value = changed_val;
+      document.getElementById("col3_size").value = changed_val;
+    }
+    document.getElementById("col2_size").onchange = function(){
+      var changed_val = document.getElementById("col2_size").value;
+      document.getElementById("row1_size").value = changed_val;
+      document.getElementById("col1_size").value = changed_val;
+      document.getElementById("col3_size").value = changed_val;
+    }
+    document.getElementById("col3_size").onchange = function(){
+      var changed_val = document.getElementById("col3_size").value;
+      document.getElementById("row1_size").value = changed_val;
+      document.getElementById("col2_size").value = changed_val;
+      document.getElementById("col1_size").value = changed_val;
+    }
   }
 }
