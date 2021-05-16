@@ -22,9 +22,7 @@ def multiplication(x, y):
 
 # multiplies matrix as a whole
 def matmult(x, y):
-    result = [[sum(a*b for a, b in zip(X_row, Y_col))
-               for Y_col in zip(*y)] for X_row in x]
-    return result
+    return np.matmul(x,y)
 
 # Orthonormal basis
 def gramschmidt(A):   # Inputs an 2d array, each column represents a vector

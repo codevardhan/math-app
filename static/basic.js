@@ -155,7 +155,7 @@ function create_table(option, row, col) {
   return table;
 }
 function default_values(opName){
-  if(opName=="ADD" || opName=="SUB"){
+  if(opName=="ADD" || opName=="SUB" || opName=="ELEMMULT"){
     document.getElementById("row1_size").onchange = function () {
       var changed_val = document.getElementById("row1_size").value;
       document.getElementById("row2_size").value = changed_val;
