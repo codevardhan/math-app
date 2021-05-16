@@ -23,7 +23,6 @@ Advanced Operations:
   + Toeplitz matrix
   + Graph Laplacian Matrix
   + SVD
-  + Spectral Clustering
   + Clustering by Kmeans
   + Distance Matrix
   + Sherman Morisson
@@ -31,7 +30,6 @@ Advanced Operations:
   
 Optimization Operations: 
   + ADMM
-  + Lagrangian and augmented Lagrangian
 
 ## Requirements
 - sympy
