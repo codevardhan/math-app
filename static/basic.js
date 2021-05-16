@@ -1,67 +1,68 @@
 function sizeSelect() {
   const data = {
-    "ADD":{
-      "Desc": "This operation is used to add 2 matrices.",
-      "Inp": "Enter 2 matrices that are of the same dimensions m*n.",
-      "Out": "The sum of the 2 matrices of dimension m*n."
+    ADD: {
+      Desc: "This operation is used to add 2 matrices.",
+      Inp: "Enter 2 matrices that are of the same dimensions m*n.",
+      Out: "The sum of the 2 matrices of dimension m*n.",
     },
-    "SUB":{
-      "Desc": "This operation is used to subtract the second matrix from the first.",
-      "Inp": "Enter 2 matrices that are of the same dimensions m*n.",
-      "Out":"The difference of the 2 matrices of dimension m*n."
+    SUB: {
+      Desc: "This operation is used to subtract the second matrix from the first.",
+      Inp: "Enter 2 matrices that are of the same dimensions m*n.",
+      Out: "The difference of the 2 matrices of dimension m*n.",
     },
-    "ELEMMULT":{
-      "Desc": "This operation is used to multiply 2 matrices element-wise.",
-      "Inp": "Enter 2 matrices that are of the same dimensions m*n.",
-      "Out": "The element-wise product of the 2 matrices of dimension m*n."
+    ELEMMULT: {
+      Desc: "This operation is used to multiply 2 matrices element-wise.",
+      Inp: "Enter 2 matrices that are of the same dimensions m*n.",
+      Out: "The element-wise product of the 2 matrices of dimension m*n.",
     },
-    "MATMULT":{
-      "Desc": "This operation is used to multiply 2 matrices.",
-      "Inp": "Enter 2 matrices that are of dimensions m*k and k*n.",
-      "Out": "The product of the 2 matrices of dimension m*n."
+    MATMULT: {
+      Desc: "This operation is used to multiply 2 matrices.",
+      Inp: "Enter 2 matrices that are of dimensions m*k and k*n.",
+      Out: "The product of the 2 matrices of dimension m*n.",
     },
-    "NORM":{
-      "Desc": "This operation is used to normalize the input matrix.",
-      "Inp": "Enter a matrix of dimensions m*n.",
-      "Out": "The transpose matrix of dimension n*m."
+    NORM: {
+      Desc: "This operation is used to normalize the input matrix.",
+      Inp: "Enter a matrix of dimensions m*n.",
+      Out: "The transpose matrix of dimension n*m.",
     },
-    "TRANS":{
-      "Desc": "This operation is used to find the transpose of the input matrix.",
-      "Inp": "Enter a matrix of dimensions m*n.",
-      "Out": "Normalized matrix of dimension n*m."
+    TRANS: {
+      Desc: "This operation is used to find the transpose of the input matrix.",
+      Inp: "Enter a matrix of dimensions m*n.",
+      Out: "Normalized matrix of dimension n*m.",
     },
-    "INV":{
-      "Desc": "This operation is used to find the inverse of the input matrix.",
-      "Inp": "Enter a matrix of dimensions m*n.",
-      "Out": "The inverse matrix of dimension m*n."
+    INV: {
+      Desc: "This operation is used to find the inverse of the input matrix.",
+      Inp: "Enter a matrix of dimensions m*n.",
+      Out: "The inverse matrix of dimension m*n.",
     },
-    "COLSP":{
-      "Desc": "This operation is used to find the column space of the input matrix.",
-      "Inp": "Enter a matrix of dimensions m*n.",
-      "Out": "The columns of the column space m*1."
+    COLSP: {
+      Desc: "This operation is used to find the column space of the input matrix.",
+      Inp: "Enter a matrix of dimensions m*n.",
+      Out: "The columns of the column space m*1.",
     },
-    "ROWSP":{
-      "Desc": "This operation is used to find the row space of the input matrix.",
-      "Inp": "Enter a matrix of dimensions m*n.",
-      "Out": "The rows of the row space 1*n."
+    ROWSP: {
+      Desc: "This operation is used to find the row space of the input matrix.",
+      Inp: "Enter a matrix of dimensions m*n.",
+      Out: "The rows of the row space 1*n.",
     },
-    "GRAMORTHONOR":{
-      "Desc": "This operation is used to orthogonalize the input matrix.",
-      "Inp": "Enter a matrix of dimensions m*n.",
-      "Out": "The orthonormalized matrix of dimension m*n."
-    }
+    GRAMORTHONOR: {
+      Desc: "This operation is used to orthogonalize the input matrix.",
+      Inp: "Enter a matrix of dimensions m*n.",
+      Out: "The orthonormalized matrix of dimension m*n.",
+    },
   };
   var operationName = operations.options[operations.selectedIndex].value;
 
   document.getElementById("desc").innerHTML = "";
   document.getElementById("arr_size_select").innerHTML = "";
   document.getElementById("desc").innerHTML += "<b>Description:</b><br>";
-  document.getElementById("desc").innerHTML += data[operationName].Desc + "<br>";
+  document.getElementById("desc").innerHTML +=
+    data[operationName].Desc + "<br>";
   document.getElementById("desc").innerHTML += "<b>Input:</b><br>";
   document.getElementById("desc").innerHTML += data[operationName].Inp + "<br>";
   document.getElementById("desc").innerHTML += "<b>Output:</b><br>";
   document.getElementById("desc").innerHTML += data[operationName].Out + "<br>";
-  
+
   if (
     operationName == "ADD" ||
     operationName == "SUB" ||
@@ -82,6 +83,7 @@ function sizeSelect() {
     document.getElementById("matrix_1").innerHTML += "<p>Matrix</p>";
     document.getElementById("matrix_1").innerHTML += create_dropdown(1);
   }
+  default_values(operationName);
 }
 
 function create_input() {
@@ -151,4 +153,24 @@ function create_table(option, row, col) {
   }
   table += "</table>";
   return table;
+}
+function default_values(opName){
+  if(opName=="ADD" || opName=="SUB"){
+    document.getElementById("row1_size").onchange = function () {
+      var changed_val = document.getElementById("row1_size").value;
+      document.getElementById("row2_size").value = changed_val;
+    };
+    document.getElementById("row2_size").onchange = function () {
+      var changed_val = document.getElementById("row2_size").value;
+      document.getElementById("row1_size").value = changed_val;
+    };
+    document.getElementById("col1_size").onchange = function () {
+      var changed_val = document.getElementById("col1_size").value;
+      document.getElementById("col2_size").value = changed_val;
+    };
+    document.getElementById("col2_size").onchange = function () {
+      var changed_val = document.getElementById("col2_size").value;
+      document.getElementById("col1_size").value = changed_val;
+    };
+  }
 }

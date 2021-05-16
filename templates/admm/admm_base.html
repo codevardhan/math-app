@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ADMM Implemntation</title>
+    <title>Lasso Regression using ADMM</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -44,11 +44,11 @@
           </header>
           <br />
           <div>
-            <h2>ADMM Implemntation</h2>
-            <p>Select suitable option and enter the numbers into the matrix.</p>
+            <h2>Lasso regression using ADMM </h2>
+            <p>Our code is based of the following <a href="https://github.com/bhushan23/ADMM/blob/master/REPORT_ADMM_IN_PYTORCH.pdf"></a>report.</a></p>
           </div>
           <!-- Section -->
-          <div>{% block basic_content %} {% endblock %}</div>
+          <div>{% block admm_content %} {% endblock %}</div>
         </div>
       </div>
 
@@ -66,15 +66,18 @@
               <li>
                 <a href="{{ url_for('advanced') }}">Advanced Calculations</a>
               </li>
-              <li><a href="{{ url_for('admm') }}">Lasso Regression using ADMM</a></li>
+              <li>
+                <a href="{{ url_for('admm') }}">Lasso Regression using ADMM</a>
+              </li>
               <li><a href="{{ url_for('about') }}">Meet The Team</a></li>
             </ul>
           </nav>
           <!-- Footer -->
           <footer id="footer">
             <p class="copyright">
-              This WebApp is developed by S4 Students for their Mathematics for Intelligent Systems - 4 Group Project. 
-              Code available on <a href="https://github.com/codevardhan/math-app">GitHub</a>.
+              This WebApp is developed by S4 Students for their Mathematics for
+              Intelligent Systems - 4 Group Project. Code available on
+              <a href="https://github.com/codevardhan/math-app">GitHub</a>.
             </p>
           </footer>
         </div>

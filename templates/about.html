@@ -11,7 +11,10 @@
       rel="stylesheet"
       href="{{url_for('static', filename='assets/css/main.css')}}"
     />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
     <style>
       html {
         box-sizing: border-box;
@@ -249,15 +252,18 @@
               <li>
                 <a href="{{ url_for('advanced') }}">Advanced Calculations</a>
               </li>
-              <li><a href="{{ url_for('admm') }}">Lasso Regression using ADMM</a></li>
+              <li>
+                <a href="{{ url_for('admm') }}">Lasso Regression using ADMM</a>
+              </li>
               <li><a href="{{ url_for('about') }}">Meet The Team</a></li>
             </ul>
           </nav>
           <!-- Footer -->
           <footer id="footer">
             <p class="copyright">
-              This WebApp is developed by S4 Students for their Mathematics for Intelligent Systems - 4 Group Project. 
-              Code available on <a href="https://github.com/codevardhan/math-app">GitHub</a>.
+              This WebApp is developed by S4 Students for their Mathematics for
+              Intelligent Systems - 4 Group Project. Code available on
+              <a href="https://github.com/codevardhan/math-app">GitHub</a>.
             </p>
           </footer>
         </div>

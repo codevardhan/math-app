@@ -3,23 +3,21 @@
 <div id="tables">
   <table style="border: 1px solid green">
     {% if isError %}
-      <p style="color:red">ERROR: {{ result }}</p>
-    
+    <p style="color: red">ERROR: {{ result }}</p>
+
     {% elif result.ndim==1 %}
-      <tr>
-        {% for j in result %}
-          <th>{{ j }}</th>
-        {% endfor %}
-      </tr>
-    {% else %} 
-      {% for i in result %}
-        <tr>
-          {% for j in i %}
-          <th>{{ j }}</th>
-          {% endfor %}
-        </tr>
-      {% endfor %} 
-    {% endif %}
+    <tr>
+      {% for j in result %}
+      <th>{{ j }}</th>
+      {% endfor %}
+    </tr>
+    {% else %} {% for i in result %}
+    <tr>
+      {% for j in i %}
+      <th>{{ j }}</th>
+      {% endfor %}
+    </tr>
+    {% endfor %} {% endif %}
   </table>
 </div>
 <input type="button" value="Go Back" onclick="history.back()" />

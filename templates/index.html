@@ -34,13 +34,24 @@
                   A Student Friendly Matrix Calculator
                 </h1>
                 <p>
-                  A web application aimed at students taking an introductory course in Linear Algebra. 
+                  A web application aimed at students taking an introductory
+                  course in Linear Algebra.
                 </p>
               </header>
               <p>
-                This app offers verification of results for a multitude of basic and advanced calculations! Scroll down for more info!!</p>
+                This app offers verification of results for a multitude of basic
+                and advanced calculations! Scroll down for more info!!
+              </p>
               <ul class="actions">
-                <li><button type="button" class="button big" onClick="document.getElementById('major').scrollIntoView();">Learn More</button></li>
+                <li>
+                  <button
+                    type="button"
+                    class="button big"
+                    onClick="document.getElementById('major').scrollIntoView();"
+                  >
+                    Learn More
+                  </button>
+                </li>
               </ul>
             </div>
             <span class="image object">
@@ -53,7 +64,7 @@
 
           <!-- Section -->
           <section>
-            <header class="major" id=major>
+            <header class="major" id="major">
               <h2>Calculations you can do here</h2>
             </header>
             <div class="features">
@@ -62,8 +73,9 @@
                 <div class="content" id="content">
                   <h3>Basic Operations</h3>
                   <p>
-                    All basic operations such as Classification, Addition, Subtraction, Multiplication and Division.
-                    Normalization or finding the transpose, inverse, column space and row space.
+                    All basic operations such as Classification, Addition,
+                    Subtraction, Multiplication and Division. Normalization or
+                    finding the transpose, inverse, column space and row space.
                     In fact you can also do Gram Schmidt Orthogonalization
                   </p>
                 </div>
@@ -74,8 +86,8 @@
                   <h3>Sherman Morisson and Kalmann filter</h3>
                   <p>
                     <i>Sherman Morisson</i> computes the inverse of the sum of
-                    an invertible matrix 'A' and the outer product,
-                    (uv)' of vectors 'u' and 'v'. <br /><br />
+                    an invertible matrix 'A' and the outer product, (uv)' of
+                    vectors 'u' and 'v'. <br /><br />
                     <i>Kalmann filter</i> also known as linear quadratic
                     estimation (LQE), is an algorithm that uses a series of
                     measurements observed over time, containing statistical
@@ -102,9 +114,7 @@
               <article>
                 <span class="icon solid fa-check"></span>
                 <div class="content">
-                  <h3>
-                    ADMM Optimizations
-                  </h3>
+                  <h3>ADMM Optimizations</h3>
                   <p>
                     <i>ADMM</i> is a method of vector quantization, originally
                     from signal processing, that aims to partition n
@@ -175,15 +185,18 @@
               <li>
                 <a href="{{ url_for('advanced') }}">Advanced Calculations</a>
               </li>
-              <li><a href="{{ url_for('admm') }}">Lasso Regression using ADMM</a></li>
+              <li>
+                <a href="{{ url_for('admm') }}">Lasso Regression using ADMM</a>
+              </li>
               <li><a href="{{ url_for('about') }}">Meet The Team</a></li>
             </ul>
           </nav>
           <!-- Footer -->
           <footer id="footer">
             <p class="copyright">
-              This WebApp is developed by S4 Students for their Mathematics for Intelligent Systems - 4 Group Project. 
-              Code available on <a href="https://github.com/codevardhan/math-app">GitHub</a>.
+              This WebApp is developed by S4 Students for their Mathematics for
+              Intelligent Systems - 4 Group Project. Code available on
+              <a href="https://github.com/codevardhan/math-app">GitHub</a>.
             </p>
           </footer>
         </div>
