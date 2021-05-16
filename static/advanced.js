@@ -7,7 +7,7 @@ function sizeSelect() {
     },
     KRO: {
       Desc: "Computes the Kronecker product, a composite array made of blocks of the second array scaled by the first.",
-      Inp: "Two arrays a and b of arbirary size.",
+      Inp: "Two arrays a and b of arbitrary size.",
       Out: "Kronecker Product, a block matrix.",
     },
     LAPL: {
