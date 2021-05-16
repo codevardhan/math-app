@@ -1,5 +1,8 @@
 # Matrix Calculator WebApp [IN PROGRESS]
 
+<p align="center">
+  <img src="https://github.com/codevardhan/math-app/blob/main/static/images/MathApp_tag.png?raw=true" width="350">
+</p>
 This WebApp is developed by S4 Students for their Mathematics for Intelligent Systems - 4 Group Project which supports matrix operations of up to 10x10 size for the following. 
 
 ## Expected Matrix Operations
@@ -23,7 +26,6 @@ Advanced Operations:
   + Toeplitz matrix
   + Graph Laplacian Matrix
   + SVD
-  + Spectral Clustering
   + Clustering by Kmeans
   + Distance Matrix
   + Sherman Morisson
@@ -31,7 +33,6 @@ Advanced Operations:
   
 Optimization Operations: 
   + ADMM
-  + Lagrangian and augmented Lagrangian
 
 ## Requirements
 - sympy
