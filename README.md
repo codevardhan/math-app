@@ -1,4 +1,4 @@
-# Matrix Calculator WebApp [IN PROGRESS]
+# Matrix Calculator WebApp
 
 <p align="center">
   <img src="https://github.com/codevardhan/math-app/blob/main/static/images/MathApp_tag.png?raw=true" width="350">
