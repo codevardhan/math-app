@@ -16,8 +16,7 @@ def Kroneckerproduct(a, b):
     return result
 
 # Function to find the graph laplacian of a matrix
-def Graph_Lap(num):
-    G = np.arange(num) * np.arange(num)[:, np.newaxis]
+def Graph_Lap(G):
     return csgraph.laplacian(G, normed=False)
 
 # Function to do singular value decomposition

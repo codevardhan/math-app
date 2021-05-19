@@ -14,7 +14,7 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route('/result', methods = ['GET', 'POST'])
+@app.route('/result', methods = ['POST'])
 def result():
     result = ''
     isError = False
@@ -55,7 +55,7 @@ def result():
     return render_template('result/result.html', result = "Function not called", isError = True)
       
 
-@app.route('/files_upload', methods = ['GET', 'POST'])
+@app.route('/files_upload', methods = ['POST'])
 def upload_file():
     isError=False
     if request.method == 'POST':
@@ -85,7 +85,7 @@ def upload_file():
                 result = traceback.format_exc().splitlines()[-1]
                 isError=True
             return render_template('result/result_admm.html', result = result, weights = weights, isError = isError)
-        return render_template('result/result.html', result = "Function not called", isError = True)
+    return render_template('result/result.html', result = "Function not called", isError = True)
 
 
 
